@@ -1,0 +1,510 @@
+@import url('https://fonts.googleapis.com/css?family=Manrope:700|Manrope:400');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: "Rubik", sans-serif;
+}
+
+
+
+:root {
+    --text: hsl(0, 0%, 99%);
+    --textDim: hsl(0, 0%, 60%);
+    --background: hsl(0, 0%, 7%);
+    --primary: hsl(0, 100%, 65%);
+    --primaryBg: hsla(0, 100%, 65%, 1%);
+    --primaryHi: hsla(0, 100%, 75%, 25%);
+    --primaryFg: hsl(0, 100%, 85%);
+    --secondary: hsl(356, 51%, 14%);
+    --secondaryFg: hsl(356, 51%, 75%);
+    --secondaryBg: hsla(356, 51%, 14%, 5%);
+    --secondaryHi: hsla(356, 51%, 30%, 50%);
+    --accent: hsl(0, 100%, 94%);
+    --accentBg: hsla(0, 100%, 94%, 1%);
+    --accentHi: hsla(0, 100%, 100%, 25%);
+}
+
+#particles-js{
+    z-index: -1;
+    position: fixed;
+    inset: 0;
+    
+}
+
+body {
+    font-family: 'Manrope';
+    font-weight: 400;
+    background-color: var(--background);
+    color: var(--text);
+    padding: 0 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    gap: 20px;
+    overflow-x: hidden;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    color: var(--textDim);
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 9999;
+}
+
+.menu:hover {
+    color: var(--text);
+    cursor: pointer;
+}
+
+.sitename {
+    font-weight: bold;
+}
+
+section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+article {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    height: 100vh;
+}
+
+.grid {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: -1;
+}
+
+.grid-svg {
+    height: 80%;
+    width: 80%;
+    position: relative;
+    z-index: 1;
+}
+
+.blur {
+    height: 12rem;
+    width: 12rem;
+    background-color: var(--primary);
+    filter: blur(100px);
+    border-radius: 100px;
+    z-index: 0;
+    position: absolute;
+}
+
+.title {
+    font-size: 10rem;
+    font-weight: 700;
+    letter-spacing: -0.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    height: 100%;
+    z-index: 1000;
+}
+
+.title>p {
+    margin: 0;
+    line-height: 10rem;
+    width: auto;
+}
+
+.title>p:nth-child(1) {
+    align-self: flex-start;
+}
+
+.title>p:nth-child(2) {
+    color: var(--primary);
+    align-self: flex-end;
+}
+
+.title>p:nth-child(3) {
+    align-self: flex-end;
+}
+
+.material-icons {
+    display: none;
+    fill: var(--text);
+}
+
+.button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    height: 50px;
+    width: 160px;
+    z-index: 9999;
+}
+
+button {
+    height: 50px;
+    width: 160px;
+    clip-path: path("M 0 25 C 0 -5, -5 0, 80 0 S 160 -5, 160 25, 165 50 80 50, 0 55, 0 25");
+    border: none;
+    border-radius: 13px;
+    background-color: var(--primaryBg);
+    box-shadow: 0px -3px 15px 0px var(--primaryHi) inset;
+    color: var(--primaryFg);
+    font-family: "Manrope";
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    transform: translateY(0px);
+    transition: all 0.2s ease;
+}
+
+span {
+    width: 100px;
+    height: 60px;
+    background-color: var(--primaryHi);
+    border-radius: 100%;
+    filter: blur(20px);
+    position: absolute;
+    bottom: -50%;
+    transition: all 0.2s ease;
+}
+
+.button:hover>span {
+    opacity: 60%;
+}
+
+.button:hover>button {
+    transform: translateY(5px);
+}
+
+.button.first {
+    top: 12%;
+    right: 20%;
+}
+
+.button.sec {
+    bottom: 13%;
+    right: 11%;
+}
+
+.button.sec>button {
+    background-color: var(--accentBg);
+    box-shadow: 0px -3px 15px 0px var(--accentHi) inset;
+    color: var(--accentFg);
+}
+
+.button.sec>span {
+    background-color: var(--accentHi);
+}
+
+.button.third {
+    bottom: 25%;
+    left: 15%;
+}
+
+.button.third>button {
+    background-color: var(--secondaryBg);
+    box-shadow: 0px -3px 15px 0px var(--secondary) inset;
+    color: var(--secondaryFg);
+}
+
+.button.third>span {
+    background-color: var(--secondaryHi);
+}
+
+.top-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    opacity: 50%;
+}
+
+.bottom-left {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 50%;
+}
+
+@media screen and (max-width: 1000px) {
+    .title {
+        font-size: 4rem;
+    }
+
+    .title>p {
+        line-height: 5rem;
+        letter-spacing: -0.3rem;
+    }
+
+    nav> :not(.sitename, .material-icons) {
+        display: none;
+    }
+
+    nav {
+        justify-content: space-between;
+    }
+
+    .material-icons {
+        display: flex;
+        align-items: center;
+    }
+}
+
+
+.malik article {
+
+    width: 100%;
+    margin: 50px 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.malik article h1 {
+
+    color: var(--text);
+    font-size: 4rem;
+
+}
+
+.malik article .content-table {
+
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 1.5em;
+    min-width: 400px;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px var(--accentHi);
+
+
+}
+
+.malik article .content-table thead tr {
+
+    background-color: var(--secondary);
+    color: var(--text);
+    text-align: left;
+    font-weight: bold;
+
+}
+
+.malik article .content-table th,
+.malik article .content-table td {
+
+    padding: 12px 15px;
+
+}
+
+.malik article .content-table tbody tr td {
+
+    font-size: 0.8em;
+
+}
+
+.content-table tbody tr {
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+}
+
+.content-table tbody tr:nth-of-type(even) {
+
+    background-color: var(--accentHi);
+
+}
+
+.content-table tbody tr:last-of-type {
+
+    border-bottom: 4px solid var(--accentHi);
+
+
+
+}
+
+.hr article {
+
+    margin: 50px 0;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.hr article h1 {
+
+    color: var(--text);
+    font-size: 4rem;
+
+}
+
+.content-hr {
+
+    background-color: var(--accentHi);
+    padding: 20px;
+    border-radius: 10px;
+
+}
+
+.operation article {
+
+    margin: 50px 0;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.operation article h1 {
+
+    color: var(--text);
+    font-size: 4rem;
+
+}
+
+.operation-body {
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+
+}
+
+.operation .content-operation {
+
+    display: flex;
+    background-color: var(--accentHi);
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    z-index: 1;
+    flex-wrap: wrap;
+
+
+}
+
+.operation .content-operation .content-operation-header {
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.operation .content-operation .content-operation-header img {
+
+    width: 100%;
+    max-width: 100px;
+    height: 100px;
+    border-radius: 50%;
+
+}
+
+.operation .content-operation .content-operation-header p {
+
+    font-weight: bold;
+    font-size: 1.4em;
+
+}
+
+.operation .content-operation b {
+
+    font-weight: 400;
+    font-size: 1.2em;
+    position: relative;
+    z-index: 1;
+
+}
+
+/* .operation .content-operation b::before {
+
+    content: '"';
+    position: absolute;
+    top: -40px;
+    left: 0;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 8rem;
+    z-index: -1;
+
+}*/
+
+/*.operation .content-operation b::after {
+
+    content: '"';
+    position: absolute;
+    bottom: -100px;
+    left: 300px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 8rem;
+    z-index: -1;
+
+} */
+
+.stationery article {
+
+    margin: 50px 0;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.stationery article h1 {
+
+    color: var(--text);
+    font-size: 4rem;
+
+}
+
+.content-stationery {
+
+    background-color: var(--accentHi);
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+
+}
