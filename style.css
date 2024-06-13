@@ -34,6 +34,7 @@
 
 }
 
+
 body {
     font-family: 'Manrope';
     font-weight: 400;
@@ -69,13 +70,14 @@ nav {
 }
 
 section {
-
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 20px;
+    padding: 20px 0;
+    margin-bottom: 50px;
 }
 
 article {
@@ -84,7 +86,8 @@ article {
     flex-direction: column;
     align-items: center;
     position: relative;
-    height: 100vh;
+    padding: 20px 0;
+    margin-block: 50px 100px;
 }
 
 .grid {
@@ -291,7 +294,7 @@ button {
 
     border-collapse: collapse;
     margin: 25px 0;
-    font-size: 1.5em;
+    font-size: 2em;
     min-width: 400px;
     border-radius: 10px 10px 0 0;
     overflow: hidden;
@@ -376,6 +379,7 @@ button {
     gap: 20px;
     display: flex;
     flex-direction: column;
+    padding: 20px 0;
 
 }
 
@@ -397,7 +401,7 @@ button {
 
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 50px;
     justify-content: center;
 
 }
@@ -417,14 +421,13 @@ button {
     z-index: 1;
     flex-wrap: wrap;
 
-
 }
 
 .operation .content-operation .content-operation-header {
 
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 50px;
     justify-content: center;
     align-items: center;
 
@@ -449,7 +452,7 @@ button {
 .operation .content-operation b {
 
     font-weight: 400;
-    font-size: 1em;
+    font-size: 1.3em;
     position: relative;
     z-index: 1;
 
@@ -508,6 +511,12 @@ button {
 
 }
 
+.control {
+
+    width: 100%;
+
+}
+
 .control article {
 
     margin: 50px 0;
@@ -516,6 +525,7 @@ button {
     gap: 10px;
     display: flex;
     flex-direction: column;
+    padding: 20px 0;
 
 
 }
