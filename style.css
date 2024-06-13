@@ -27,11 +27,11 @@
     --accentHi: hsla(0, 100%, 100%, 25%);
 }
 
-#particles-js{
+#particles-js {
     z-index: -1;
     position: fixed;
     inset: 0;
-    
+
 }
 
 body {
@@ -69,6 +69,7 @@ nav {
 }
 
 section {
+    
     width: 100%;
     display: flex;
     justify-content: center;
@@ -183,16 +184,7 @@ button {
     transition: all 0.2s ease;
 }
 
-span {
-    width: 100px;
-    height: 60px;
-    background-color: var(--primaryHi);
-    border-radius: 100%;
-    filter: blur(20px);
-    position: absolute;
-    bottom: -50%;
-    transition: all 0.2s ease;
-}
+
 
 .button:hover>span {
     opacity: 60%;
@@ -394,6 +386,13 @@ span {
 
 }
 
+.operation article p{
+
+    color: var(--text);
+    font-size: 2rem;
+
+}
+
 .operation-body {
 
     display: flex;
@@ -409,12 +408,12 @@ span {
     background-color: var(--accentHi);
     padding: 20px;
     border-radius: 10px 10px 0 0;
-    gap: 50px;
+    gap: 30px;
     justify-content: center;
     align-items: center;
     text-align: center;
     width: 100%;
-    max-width: 400px;
+    max-width: 300px;
     z-index: 1;
     flex-wrap: wrap;
 
@@ -450,7 +449,7 @@ span {
 .operation .content-operation b {
 
     font-weight: 400;
-    font-size: 1.2em;
+    font-size: 1em;
     position: relative;
     z-index: 1;
 
@@ -506,5 +505,417 @@ span {
     width: 100%;
     padding: 20px;
     border-radius: 10px;
+
+}
+
+.control article {
+
+    margin: 50px 0;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.control article h1 {
+
+    color: var(--text);
+    font-size: 4rem;
+
+}
+
+.control article p {
+
+    color: var(--text);
+    font-size: 2rem;
+
+}
+
+.control article .content-control {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+}
+
+.control article .content-control .content-control-card {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--accentHi);
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 550px;
+
+
+}
+
+.control article .content-control .content-control-card .content-control-card-identity {
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.control article .content-control .content-control-card .content-control-card-identity img {
+
+    width: 100%;
+    max-width: 100px;
+
+}
+
+.control article .content-control .content-control-card .content-control-card-identity p {
+
+    color: var(--text);
+    font-size: 2rem;
+    font-weight: bold;
+
+}
+
+.control article .content-control .content-control-card b {
+
+    color: var(--text);
+    font-size: 2.5rem;
+    font-weight: bold;
+
+}
+
+.services article {
+
+    margin: 50px 0;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.services article h1 {
+
+    color: var(--text);
+    font-size: 4rem;
+
+}
+
+.services article p {
+
+    color: var(--text);
+    font-size: 2rem;
+
+}
+
+.competition-body {
+
+    display: flex;
+    gap: 70px;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 120px;
+
+}
+
+
+.competition-body .competition-body-card {
+
+    --white: hsl(0, 0%, 100%);
+    --black: hsl(240, 15%, 9%);
+    --paragraph: hsl(0, 0%, 83%);
+    --line: hsl(240, 9%, 17%);
+    --primary: hsl(266, 92%, 58%);
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    padding: 1rem;
+    width: 19rem;
+    background-color: hsla(240, 15%, 9%, 1);
+    background-image: radial-gradient(at 88% 40%,
+            hsla(240, 15%, 9%, 1) 0px,
+            transparent 85%),
+        radial-gradient(at 49% 30%, hsla(240, 15%, 9%, 1) 0px, transparent 85%),
+        radial-gradient(at 14% 26%, hsla(240, 15%, 9%, 1) 0px, transparent 85%),
+        radial-gradient(at 0% 64%, hsla(263, 93%, 56%, 1) 0px, transparent 85%),
+        radial-gradient(at 41% 94%, hsla(284, 100%, 84%, 1) 0px, transparent 85%),
+        radial-gradient(at 100% 99%, hsla(306, 100%, 57%, 1) 0px, transparent 85%);
+
+    border-radius: 1rem;
+    box-shadow: 0px -16px 24px 0px rgba(255, 255, 255, 0.25) inset;
+    transition: 0.4s ease-in-out;
+
+}
+
+
+
+.competition-body .competition-body-card .card__border {
+
+    overflow: hidden;
+    pointer-events: none;
+
+    position: absolute;
+    z-index: -10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    background-image: linear-gradient(0deg,
+            hsl(0, 0%, 100%) -50%,
+            hsl(0, 0%, 40%) 100%);
+
+    border-radius: 1rem;
+}
+
+.competition-body .competition-body-card .card__border::before {
+
+    content: "";
+    pointer-events: none;
+    position: fixed;
+    z-index: 200;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%), rotate(0deg);
+    transform-origin: left;
+
+    width: 200%;
+    height: 10rem;
+    background-image: linear-gradient(0deg,
+            hsla(0, 0%, 100%, 0) 0%,
+            hsl(277, 95%, 60%) 40%,
+            hsl(277, 95%, 60%) 60%,
+            hsla(0, 0%, 40%, 0) 100%);
+
+    animation: rotate 8s linear infinite;
+
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.competition-body .competition-body-card .position {
+
+    width: 100%;
+    max-width: 250px;
+    text-align: center;
+    position: absolute;
+    top: -35%;
+    left: 25;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    position: absolute;
+    animation: jumping 3s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+
+}
+
+@keyframes jumping {
+
+    0%,
+    100% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-20px);
+
+    }
+
+}
+
+
+
+
+.competition-body .competition-body-card .competition-body-card-inside {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    height: 100%;
+
+
+}
+
+.competition-body .competition-body-card .competition-body-card-inside img {
+
+    width: 100%;
+    max-width: 250px;
+
+}
+
+
+
+
+.competition-body .competition-body-card .competition-body-card-inside .competition-body-card-inside-footer {
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+}
+
+.competition-body .competition-body-card .competition-body-card-inside .competition-body-card-inside-footer .competition-body-card-inside-footer-row {
+
+    display: flex;
+    gap: 40px;
+}
+
+.competition-body .competition-body-card .competition-body-card-inside .competition-body-card-inside-footer span {
+
+    color: var(--text);
+    font-size: 1.5rem;
+    font-weight: bold;
+
+}
+
+.competition article .competition-body .competition-body-card .competition-body-card-inside .competition-body-card-inside-footer .competition-body-card-inside-footer-row p {
+
+    color: rgba(227, 222, 193, 0.64);
+    font-weight: 500;
+    font-size: 1.2rem;
+
+}
+
+.competition-body .competition-body-card .competition-body-card-inside .competition-body-card-inside-footer .competition-body-card-inside-footer-row b {
+
+    color: rgba(227, 222, 193, 0.64);
+    font-weight: 500;
+
+}
+
+.competition article .competition-body .competition-body-card .competition-body-card-inside .competition-body-card-inside-footer span {
+
+    font-weight: 500;
+    color: var(--text);
+    font-size: 1.5rem;
+
+}
+
+.competition-body .competition-body-card .competition-body-card-inside .competition-body-card-inside-footer p {
+
+    font-weight: 400;
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+
+}
+
+.competition-body .competition-body-card .competition-body-card-inside .competition-body-card-inside-footer a {
+
+    color: white;
+    padding: 10px;
+    background-color: #742b8c;
+    border-radius: 30px;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    transition: 0.4s ease-in-out;
+    margin-top: auto;
+
+}
+
+
+.competition-body .competition-body-card .competition-body-card-inside .competition-body-card-inside-footer a:hover {
+
+
+    --edge-light: hsla(0, 0%, 50%, 1);
+    text-shadow: 0px 0px 10px var(--text-light);
+    box-shadow: inset 0.4px 1px 4px var(--edge-light),
+        2px 4px 8px hsla(0, 0%, 0%, 0.295);
+    transform: scale(1.1);
+
+}
+
+
+
+.competition-body .competition-body-card .competition-body-card-inside .competition-body-card-inside-footer a:hover:before {
+
+    -webkit-animation: sh02 0.5s 0s linear;
+    -moz-animation: sh02 0.5s 0s linear;
+    animation: sh02 0.5s 0s linear;
+
+}
+
+.--button:before {
+
+    content: '';
+    display: block;
+    width: 0px;
+    height: 86%;
+    position: absolute;
+    top: 7%;
+    left: 0%;
+    opacity: 0;
+    background: #fff;
+    box-shadow: 0 0 50px 30px #fff;
+    -webkit-transform: skewX(-20deg);
+    -moz-transform: skewX(-20deg);
+    -ms-transform: skewX(-20deg);
+    -o-transform: skewX(-20deg);
+    transform: skewX(-20deg);
+
+}
+
+.books article {
+
+    margin: 50px 0;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.books article h1 {
+
+    color: var(--text);
+    font-size: 4rem;
+
+}
+
+.books article p {
+
+    color: var(--text);
+    font-size: 2rem;
+
+}
+
+.books article .competition-body {
+
+    gap: 30px;
+    margin-top: 50px;
+
+}
+
+.books article .competition-body .competition-body-card{
+
+    width: 15rem;
+    
 
 }
