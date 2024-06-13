@@ -5,7 +5,7 @@
     setInterval(() => {
         currentSectionIndex = (currentSectionIndex + 1) % sections.length;
         sections[currentSectionIndex].scrollIntoView({ behavior: "smooth" });
-    }, 5000); // 60000 milliseconds = 1 minute
+    }, 15000); // 60000 milliseconds = 1 minute
 });
 
 
