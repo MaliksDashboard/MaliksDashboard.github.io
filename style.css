@@ -292,7 +292,7 @@ button {
 
     border-collapse: collapse;
     margin: 25px 0;
-    font-size: 2em;
+    font-size: 1.5em;
     min-width: 400px;
     border-radius: 10px 10px 0 0;
     overflow: hidden;
@@ -367,6 +367,11 @@ button {
     padding: 20px;
     border-radius: 10px;
 
+}
+
+.content-hr img {
+    width: 100%;
+    max-width: 300px;
 }
 
 .operation article {
@@ -561,7 +566,7 @@ button {
     padding: 20px;
     border-radius: 10px;
     width: 100%;
-    max-width: 550px;
+    max-width: 350px;
 
 
 }
@@ -584,7 +589,7 @@ button {
 .control article .content-control .content-control-card .content-control-card-identity p {
 
     color: var(--text);
-    font-size: 2rem;
+    font-size: 1.2rem;
     font-weight: bold;
 
 }
@@ -592,7 +597,7 @@ button {
 .control article .content-control .content-control-card b {
 
     color: var(--text);
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
 
 }
@@ -649,7 +654,7 @@ button {
     gap: 1rem;
 
     padding: 1rem;
-    width: 19rem;
+    width: 16rem;
     background-color: hsla(240, 15%, 9%, 1);
     background-image: radial-gradient(at 88% 40%,
             hsla(240, 15%, 9%, 1) 0px,
@@ -723,7 +728,7 @@ button {
     text-align: center;
     position: absolute;
     top: -35%;
-    left: 25;
+    left: 7px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -923,7 +928,7 @@ button {
 
 .books article .competition-body .competition-body-card {
 
-    width: 15rem;
+    width: 13rem;
 
 
 }
