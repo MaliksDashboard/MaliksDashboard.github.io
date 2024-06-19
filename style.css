@@ -279,7 +279,7 @@ button {
 .malik article {
 
     width: 100%;
-    margin: 50px 0;
+    margin: -35px 0;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -598,7 +598,7 @@ button {
 
 .services article {
 
-    margin: 50px 0;
+    margin: 0px 0;
     align-items: center;
     text-align: center;
     display: flex;
