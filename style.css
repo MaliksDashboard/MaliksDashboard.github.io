@@ -275,81 +275,74 @@ button {
     }
 }
 
-
 .malik article {
-
     width: 100%;
-    margin: -35px 0;
+    margin: 0;
     justify-content: center;
     align-items: center;
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: -10px;
-
 }
 
 .malik article h1 {
-
     color: var(--text);
     font-size: 3rem;
+    margin-bottom: 20px;
+}
 
+.malik .tables {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: nowrap;
 }
 
 .malik article .content-table {
-
     border-collapse: collapse;
     margin: 25px 0;
-    font-size: 0.7rem;
-    min-width: 400px;
-    border-radius: 10px 10px 0 0;
+    min-width: 350px;
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 0 20px var(--accentHi);
-
-
+    box-shadow: 0 0 10px var(--accentHi);
+    background-color: var(--background);
 }
 
 .malik article .content-table thead tr {
-
     background-color: var(--secondary);
     color: var(--text);
     text-align: left;
     font-weight: bold;
-
+    font-size: 0.6rem;
 }
 
 .malik article .content-table th,
 .malik article .content-table td {
-
-    padding: 12px 15px;
-
+    padding: 5px 8px;
 }
 
 .malik article .content-table tbody tr td {
-
-    font-size: 0.8em;
-
+    font-size: 0.7em;
 }
 
 .content-table tbody tr {
-
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-
 }
 
 .content-table tbody tr:nth-of-type(even) {
-
     background-color: var(--accentHi);
-
 }
 
 .content-table tbody tr:last-of-type {
-
     border-bottom: 4px solid var(--accentHi);
-
-
-
 }
+
+.content-table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
 
 .hr article {
 
@@ -383,7 +376,7 @@ button {
     max-width: 180px;
 }
 
-.content-hr .cong{
+.content-hr .cong {
     position: absolute;
     font-size: 3rem;
     rotate: -5deg;
