@@ -427,7 +427,7 @@ button {
     background-color: var(--accentHi);
     padding: 20px;
     border-radius: 10px 10px 0 0;
-    gap: 10px;
+    gap: 5px;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -443,7 +443,7 @@ button {
 
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 10px;
     justify-content: center;
     align-items: center;
 
@@ -569,14 +569,14 @@ button {
 .control article .content-control .content-control-card .content-control-card-identity img {
 
     width: 100%;
-    max-width: 60px;
+    max-width: 50px;
 
 }
 
 .control article .content-control .content-control-card .content-control-card-identity p {
 
     color: var(--text);
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: bold;
 
 }
@@ -584,7 +584,7 @@ button {
 .control article .content-control .content-control-card b {
 
     color: var(--text);
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
 
 }
