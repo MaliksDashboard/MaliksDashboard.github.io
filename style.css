@@ -285,16 +285,16 @@ button {
     flex-direction: column;
 }
 
-.malik .malik-title{
+.malik .malik-title {
     display: flex;
     flex-direction: column;
 }
 
-.malik .malik-title p{
+.malik-title p {
     font-size: 0.85rem;
 }
 
-.malik article h1 {
+.malik-title h1 {
     color: var(--text);
     font-size: 3rem;
 }
@@ -887,6 +887,178 @@ button {
     transform: skewX(-20deg);
 
 }
+
+.cashier {
+    width: 100%;
+}
+
+.cashier article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.cashier article .malik-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+}
+
+.cashier article .malik-title p {
+    font-size: 1rem;
+}
+
+.cashier article .cashier-body {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+}
+
+.cashier article .cashier-body .cashier-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 200px;
+    height: 300px;
+    padding: 10px;
+
+}
+
+.cashier article .cashier-body .cashier-card img {
+    width: 100%;
+    max-width: 130px;
+}
+
+.cashier article .cashier-body .cashier-card .squares {
+    position: relative;
+}
+
+.cashier article .cashier-body .cashier-card .squares .square {
+    width: 150px;
+    height: 150px;
+    border: 1px solid white;
+    position: absolute;
+    top: -175px;
+    left: -75px;
+}
+
+.cashier article .cashier-body .cashier-card .squares .square:nth-child(1) {
+    rotate: 10deg;
+}
+
+.cashier article .cashier-body .cashier-card .squares .square:nth-child(2) {
+    rotate: 20deg;
+}
+
+.cashier article .cashier-body .cashier-card .squares .square:nth-child(3) {
+    rotate: 30deg;
+}
+
+.cashier article .cashier-body .cashier-card .squares .square:nth-child(4) {
+    rotate: 40deg;
+}
+
+.cashier article .cashier-body .cashier-card .squares .square:nth-child(5) {
+    rotate: 50deg;
+}
+
+
+.cashier article .cashier-body .cashier-card .cashier-card-footer {
+    display: flex;
+    flex-direction: column;
+}
+
+.cashier article .cashier-body .cashier-card .cashier-card-footer span {
+    font-weight: bold;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+}
+
+.cashier article .cashier-body .cashier-card .cashier-card-footer span b {
+    font-weight: 1000;
+    background: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cashier article .cashier-body .cashier-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 300px;
+    gap: 30px;
+}
+
+.cashier article .cashier-body .cashier-right .cashier-right-title {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cashier article .cashier-body .cashier-right .cashier-right-title b {
+    font-weight: 100;
+    font-size: 0.8rem;
+}
+
+.cashier article .cashier-body .cashier-right .cashier-right-title span {
+    font-size: 2rem;
+    font-weight: 1000;
+    text-transform: uppercase;
+    line-height: 35px;
+}
+
+.cashier article .cashier-body .cashier-right .cashier-right-title span p {
+    background: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cashier article .cashier-body .cashier-right .cashier-right-footer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 200px;
+    gap: 10px;
+}
+
+.cashier article .cashier-body .cashier-right .cashier-right-footer p {
+    font-size: 0.8rem;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+.cashier article .cashier-body .cashier-right .cashier-right-footer b {
+    font-size: 0.8rem;
+    text-transform: capitalize;
+}
+
+.cashier-icon {
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    width: 100%;
+    max-width: 150px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+}
+
+
 
 .books article {
 
