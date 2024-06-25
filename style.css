@@ -285,10 +285,18 @@ button {
     flex-direction: column;
 }
 
+.malik .malik-title{
+    display: flex;
+    flex-direction: column;
+}
+
+.malik .malik-title p{
+    font-size: 0.85rem;
+}
+
 .malik article h1 {
     color: var(--text);
     font-size: 3rem;
-    margin-bottom: 20px;
 }
 
 .malik .tables {
