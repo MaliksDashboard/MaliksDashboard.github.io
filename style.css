@@ -275,6 +275,12 @@ button {
     }
 }
 
+
+.news img{
+    width: 100%;
+    max-width: 500px;
+}
+
 .malik article {
     width: 100%;
     margin: 0;
