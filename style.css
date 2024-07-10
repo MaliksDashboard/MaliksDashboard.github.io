@@ -1187,6 +1187,22 @@ table tbody tr td {
 
 }
 
+.marketing {}
+
+.marketing article {
+    margin: 0px 0;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.marketing article img{
+    width: 100%;
+    max-width: 450px;
+}
+
 footer {
 
     width: 100%;
