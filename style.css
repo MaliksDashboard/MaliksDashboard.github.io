@@ -382,7 +382,7 @@ button {
 
 .content-hr img {
   width: 100%;
-  max-width: 180px;
+  max-width: 550px;
 }
 
 .content-hr .cong {
@@ -948,6 +948,11 @@ table tbody tr td {
   justify-content: center;
   width: 100%;
   align-items: center;
+}
+
+.cashier .img-cashier {
+  width: 100%;
+  max-width: 600px;
 }
 
 .cashier article .cashier-body .cashier-card {
