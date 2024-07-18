@@ -1165,3 +1165,9 @@ footer a {
   color: var(--text);
   font-size: 3rem;
 }
+
+.elect article p{
+  font-size: 0.7rem;
+  width: 100%;
+  max-width: 600px;
+}
