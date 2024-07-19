@@ -276,7 +276,7 @@ button {
 
 .news img {
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
 }
 
 .malik article {
@@ -292,6 +292,7 @@ button {
 .malik .malik-title {
   display: flex;
   flex-direction: column;
+  gap: 5px;
 }
 
 .malik-title p {
@@ -305,7 +306,7 @@ button {
 
 .malik .tables {
   display: flex;
-  gap: 20px;
+  gap: 30px;
   justify-content: center;
   flex-wrap: nowrap;
 }
@@ -313,7 +314,7 @@ button {
 .malik article .content-table {
   border-collapse: collapse;
   margin: 25px 0;
-  min-width: 350px;
+  min-width: 530px;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 0 10px var(--accentHi);
@@ -321,7 +322,7 @@ button {
 }
 
 .elect article .content-table {
-  min-width: 150px;
+  min-width: 3c50px;
 }
 
 .malik article .content-table thead tr {
@@ -329,7 +330,7 @@ button {
   color: var(--text);
   text-align: left;
   font-weight: bold;
-  font-size: 0.6rem;
+  font-size: 0.8rem;
 }
 
 .malik article .content-table th,
@@ -338,7 +339,8 @@ button {
 }
 
 .malik article .content-table tbody tr td {
-  font-size: 0.7em;
+  font-size: 0.9rem;
+  font-weight: bold;
 }
 
 .content-table tbody tr {
@@ -378,11 +380,13 @@ button {
   padding: 20px;
   border-radius: 10px;
   position: relative;
+  width: 100%;
+  max-width:700px;
 }
 
 .content-hr img {
   width: 100%;
-  max-width: 550px;
+  max-width: 650px;
 }
 
 .content-hr .cong {
@@ -415,6 +419,12 @@ button {
   font-size: 1rem;
 }
 
+.stars{
+  color: rgb(187, 187, 0) !important;
+  text-shadow: 0 0 5px rgb(187, 187, 0), 0 0 10px rgb(187, 187, 0), 0 0 20px rgb(187, 187, 0), 0 0 30px rgb(187, 187, 0), 0 0 40px rgb(187, 187, 0), 0 0 50px rgb(187, 187, 0), 0 0 60px rgb(187, 187, 0);
+}
+
+
 .operation-body {
   display: flex;
   flex-wrap: wrap;
@@ -432,8 +442,8 @@ button {
   align-items: center;
   text-align: center;
   width: 100%;
-  max-width: 200px;
-  height: 320px;
+  max-width: 250px;
+  height: 370px;
   z-index: 1;
   flex-wrap: wrap;
 }
@@ -455,12 +465,12 @@ button {
 
 .operation .content-operation .content-operation-header p {
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1.5em;
 }
 
 .operation .content-operation b {
   font-weight: 400;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   position: relative;
   z-index: 1;
 }
@@ -479,7 +489,7 @@ button {
 
 .all-tables {
   display: flex;
-  gap: 20px;
+  gap: 50px;
   margin-top: 5px;
 }
 
@@ -499,7 +509,7 @@ button {
 .stationery table,
 table thead tr th,
 table tbody tr td {
-  padding: 3px;
+  padding: 5px;
   cursor: pointer;
 }
 
@@ -526,6 +536,7 @@ table tbody tr td {
   border-radius: 0.2rem;
 }
 
+
 .body-stat p {
   padding: 1.5px;
   background-color: rgb(5, 92, 5);
@@ -537,12 +548,12 @@ table tbody tr td {
 }
 
 .header-stat {
-  font-size: 0.7rem;
-  font-weight: 400;
+  font-size: .8rem;
+  font-weight: bold;
 }
 
 .body-stat {
-  font-size: 0.6rem;
+  font-size: 0.8rem;
 }
 
 .header-stat,
@@ -558,7 +569,7 @@ table tbody tr td {
   margin: 0px 0;
   align-items: center;
   text-align: center;
-  gap: 10px;
+  gap: 30px;
   display: flex;
   flex-direction: column;
   padding: 20px 0;
@@ -593,7 +604,7 @@ table tbody tr td {
   padding: 20px;
   border-radius: 10px;
   width: 100%;
-  max-width: 350px;
+  max-width: 550px;
 }
 
 .control
@@ -613,7 +624,7 @@ table tbody tr td {
   .content-control-card-identity
   img {
   width: 100%;
-  max-width: 50px;
+  max-width: 65px;
 }
 
 .control
@@ -623,13 +634,13 @@ table tbody tr td {
   .content-control-card-identity
   p {
   color: var(--text);
-  font-size: 0.85rem;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
 .control article .content-control .content-control-card b {
   color: var(--text);
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
@@ -677,7 +688,7 @@ table tbody tr td {
   gap: 1rem;
 
   padding: 1rem;
-  width: 11rem;
+  width: 13rem;
   background-color: hsla(240, 15%, 9%, 1);
   background-image: radial-gradient(
       at 88% 40%,
@@ -746,7 +757,7 @@ table tbody tr td {
 
 .competition-body .competition-body-card .position {
   width: 100%;
-  max-width: 150px;
+  max-width: 180px;
   text-align: center;
   position: absolute;
   top: -30%;
@@ -812,7 +823,7 @@ table tbody tr td {
   .competition-body-card-inside-footer
   span {
   color: var(--text);
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: bold;
 }
 
@@ -858,7 +869,7 @@ table tbody tr td {
   p {
   font-weight: 400;
   color: white;
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   text-align: center;
 }
 
@@ -952,7 +963,7 @@ table tbody tr td {
 
 .cashier .img-cashier {
   width: 100%;
-  max-width: 600px;
+  max-width: 750px;
 }
 
 .cashier article .cashier-body .cashier-card {
@@ -1130,7 +1141,7 @@ table tbody tr td {
 }
 
 .books article .competition-body .competition-body-card {
-  width: 8rem;
+  width: 12rem;
 }
 
 .marketing article {
@@ -1141,9 +1152,14 @@ table tbody tr td {
   flex-direction: column;
 }
 
+.marketing .marketing-imgs{
+  display: flex;
+  gap: 20px;
+}
+
 .marketing article img {
   width: 100%;
-  max-width: 450px;
+  max-width: 500px;
 }
 
 footer {
