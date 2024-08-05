@@ -3,7 +3,7 @@
     let currentSectionIndex = 0;
 
     // Array to store the duration (in seconds) for each section
-    const sectionDurations = [10, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15]; // Example durations for each section
+    const sectionDurations = [20, 20, 20, 20, 20]; // Example durations for each section
 
     function scrollToNextSection() {
       currentSectionIndex = (currentSectionIndex + 1) % sections.length;
@@ -75,6 +75,7 @@ particlesJS("particles-js", {
   },
   retina_detect: true,
 });
+
 var count_particles, stats, update;
 stats = new Stats();
 stats.setMode(0);
