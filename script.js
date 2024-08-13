@@ -1,24 +1,24 @@
-  document.addEventListener("DOMContentLoaded", function () {
-    const sections = document.querySelectorAll("section");
-    let currentSectionIndex = 0;
+  // document.addEventListener("DOMContentLoaded", function () {
+  //   const sections = document.querySelectorAll("section");
+  //   let currentSectionIndex = 0;
 
-    // Array to store the duration (in seconds) for each section
-    const sectionDurations = [20, 20, 20, 20, 20]; // Example durations for each section
+  //   // Array to store the duration (in seconds) for each section
+  //   const sectionDurations = [20, 20, 20, 20, 20]; // Example durations for each section
 
-    function scrollToNextSection() {
-      currentSectionIndex = (currentSectionIndex + 1) % sections.length;
-      sections[currentSectionIndex].scrollIntoView({ behavior: "smooth" });
+  //   function scrollToNextSection() {
+  //     currentSectionIndex = (currentSectionIndex + 1) % sections.length;
+  //     sections[currentSectionIndex].scrollIntoView({ behavior: "smooth" });
 
-      // Set the timeout for the next scroll based on the duration of the current section
-      setTimeout(
-        scrollToNextSection,
-        sectionDurations[currentSectionIndex] * 1000
-      );
-    }
+  //     // Set the timeout for the next scroll based on the duration of the current section
+  //     setTimeout(
+  //       scrollToNextSection,
+  //       sectionDurations[currentSectionIndex] * 1000
+  //     );
+  //   }
 
-    // Start the scrolling with the duration of the first section
-    setTimeout(scrollToNextSection, sectionDurations[currentSectionIndex] * 1000);
-  });
+  //   // Start the scrolling with the duration of the first section
+  //   setTimeout(scrollToNextSection, sectionDurations[currentSectionIndex] * 1000);
+  // });
 
 particlesJS("particles-js", {
   particles: {
@@ -76,20 +76,20 @@ particlesJS("particles-js", {
   retina_detect: true,
 });
 
-var count_particles, stats, update;
-stats = new Stats();
-stats.setMode(0);
-stats.domElement.style.position = "absolute";
-stats.domElement.style.left = "0px";
-stats.domElement.style.top = "0px";
-document.body.appendChild(stats.domElement);
-count_particles = document.querySelector(".js-count-particles");
-update = function () {
-  stats.begin();
-  stats.end();
-  if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
-    count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
-  }
-  requestAnimationFrame(update);
-};
-requestAnimationFrame(update);
+// var count_particles, stats, update;
+// stats = new Stats();
+// stats.setMode(0);
+// stats.domElement.style.position = "absolute";
+// stats.domElement.style.left = "0px";
+// stats.domElement.style.top = "0px";
+// document.body.appendChild(stats.domElement);
+// count_particles = document.querySelector(".js-count-particles");
+// update = function () {
+//   stats.begin();
+//   stats.end();
+//   if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+//     count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+//   }
+//   requestAnimationFrame(update);
+// };
+// requestAnimationFrame(update);

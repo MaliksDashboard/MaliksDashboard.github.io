@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Manrope:700|Manrope:400");
-@import "~bootstrap/scss/bootstrap";
 
 * {
   margin: 0;
@@ -660,6 +659,7 @@ table tbody tr td {
   text-align: center;
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 
 .services article h1 {
@@ -667,10 +667,6 @@ table tbody tr td {
   font-size: 3rem;
 }
 
-.services article p {
-  color: var(--text);
-  font-size: 1rem;
-}
 
 .competition-body {
   display: flex;
@@ -1186,4 +1182,102 @@ footer a {
   width: 100%;
   max-width: 600px;
   color: white;  
+}
+
+
+.table-services{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+}
+
+.table-services .table-body{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: rgb(105, 105, 105);
+  border-radius: 10px;
+}
+
+.table-services .table-body .serv{
+  display: flex;
+  flex-direction: column;
+  color: white;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.table-services .table-body .serv thead tr{
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 5px;
+  border-radius: 10px 10px 0 0;
+  width: 100%;
+}
+
+.table-services .table-body .serv thead tr th{
+  width:300px;
+  display: flex;
+}
+
+.table-services .table-body .serv thead{
+  width: 100%;
+}
+
+.serv-tbody {
+  width: 100%;
+}
+
+.serv-tbody tr:nth-child(odd){
+background-color: rgba(0, 0, 0, 0.3);
+color: var(--text);
+}
+
+.serv-tbody tr:nth-child(even){
+  background-color: rgba(0, 0, 0, 0.1);
+  color: var(--text);
+  }
+
+.serv-tbody tr{
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 10px;
+}
+
+.serv-tbody tr td{
+  width: 300px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.serv-tbody tr td img{
+  width: 35px;
+}
+
+.serv-table-img{
+  display: flex;
+  gap: 50px;
+}
+
+.serv-tbody tr td p{
+  font-size: .8rem;
+}
+
+.body-serv-rank{
+  width: 50px !important;
+}
+
+.header-serv-rank{
+  width: 50px !important;
 }
