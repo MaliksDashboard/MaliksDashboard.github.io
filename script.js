@@ -2,21 +2,18 @@
     const sections = document.querySelectorAll("section");
     let currentSectionIndex = 0;
 
-    // Array to store the duration (in seconds) for each section
-    const sectionDurations = [20, 20, 20, 20, 20,20]; // Example durations for each section
+    const sectionDurations = [45, 20, 20, 20, 20]; // Example durations for each section
 
     function scrollToNextSection() {
       currentSectionIndex = (currentSectionIndex + 1) % sections.length;
       sections[currentSectionIndex].scrollIntoView({ behavior: "smooth" });
 
-      // Set the timeout for the next scroll based on the duration of the current section
       setTimeout(
         scrollToNextSection,
         sectionDurations[currentSectionIndex] * 1000
       );
     }
 
-    // Start the scrolling with the duration of the first section
     setTimeout(scrollToNextSection, sectionDurations[currentSectionIndex] * 1000);
   });
 
@@ -93,3 +90,18 @@ particlesJS("particles-js", {
 //   requestAnimationFrame(update);
 // };
 // requestAnimationFrame(update);
+
+document.addEventListener("DOMContentLoaded", function () {
+  let currentSlide = 0;
+  const slider = document.querySelector('.slider');
+  const slides = document.querySelectorAll('.slider img');
+  const totalSlides = slides.length;
+
+  function autoSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    slider.scrollLeft = currentSlide * slider.clientWidth; // Use scrollLeft instead of scrollIntoView
+  }
+
+  // Start the slideshow
+  setInterval(autoSlide, 7000); // Change slide every 5 seconds
+});
