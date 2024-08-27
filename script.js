@@ -2,7 +2,7 @@
     const sections = document.querySelectorAll("section");
     let currentSectionIndex = 0;
 
-    const sectionDurations = [20, 45, 20, 20, 20]; // Example durations for each section
+    const sectionDurations = [20, 20, 20, 20]; // Example durations for each section
 
     function scrollToNextSection() {
       currentSectionIndex = (currentSectionIndex + 1) % sections.length;
@@ -105,3 +105,23 @@ document.addEventListener("DOMContentLoaded", function () {
   // Start the slideshow
   setInterval(autoSlide, 7000); // Change slide every 5 seconds
 });
+
+function updateDate() {
+  const dateElement = document.getElementById("real-time-date");
+
+  // Get the current date and time
+  const now = new Date();
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+
+  // Format the date and time
+  const formattedDate = now.toLocaleDateString('en-US', options);
+
+  // Update the content of the dateElement
+  dateElement.innerText = formattedDate;
+}
+
+// Update the date every second
+setInterval(updateDate, 1000);
+
+// Initial call to display the date right away
+updateDate();
