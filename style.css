@@ -90,6 +90,7 @@ article {
   position: relative;
   padding: 20px 0;
   margin-block: 50px 100px;
+  height: 100vh;
 }
 
 .grid {
@@ -370,6 +371,7 @@ button {
   transition: background-color 0.3s ease;
 }
 
+
 .hr article {
   margin: 0px 0;
   align-items: center;
@@ -601,11 +603,10 @@ table tbody tr td {
 
 .control article .content-control {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 10px;
   width: 100%;
 }
 
@@ -617,7 +618,7 @@ table tbody tr td {
   padding: 20px;
   border-radius: 10px;
   width: 100%;
-  max-width: 550px;
+  max-width: 400px;
 }
 
 .control
