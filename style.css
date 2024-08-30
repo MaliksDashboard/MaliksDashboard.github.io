@@ -418,6 +418,8 @@ button {
   display: flex;
   flex-direction: column;
   padding: 20px 0;
+  justify-content: center;
+  align-items: center;
 }
 
 .operation article h1 {
@@ -591,6 +593,7 @@ table tbody tr td {
   flex-direction: column;
   padding: 20px 0;
   width: 100%;
+  justify-content: center;
 }
 
 .control article h1 {
