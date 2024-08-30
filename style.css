@@ -441,22 +441,22 @@ button {
   flex-wrap: wrap;
   gap: 50px;
   justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .operation .content-operation {
   display: flex;
   background-color: var(--accentHi);
   padding: 20px;
-  border-radius: 10px 10px 0 0;
-  gap: 5px;
+  border-radius: 10px;
+  gap: 40px;
   justify-content: center;
   align-items: center;
   text-align: center;
   width: 100%;
-  max-width: 250px;
-  height: 370px;
+  max-width: 550px;
   z-index: 1;
-  flex-wrap: wrap;
 }
 
 .operation .content-operation .content-operation-header {
@@ -476,7 +476,7 @@ button {
 
 .operation .content-operation .content-operation-header p {
   font-weight: bold;
-  font-size: 1.5em;
+  font-size: 1rem;
 }
 
 p{
@@ -488,6 +488,8 @@ p{
   position: relative;
   z-index: 1;
   color: var(--text);
+  width: 100%;
+  max-width: 350px;
 }
 
 .stationery {
