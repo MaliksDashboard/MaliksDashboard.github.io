@@ -113,7 +113,7 @@ article {
 .blur {
   height: 12rem;
   width: 12rem;
-  background-color: var(--primary);
+  background-color: #ff3cac;
   filter: blur(100px);
   border-radius: 100px;
   z-index: 0;
