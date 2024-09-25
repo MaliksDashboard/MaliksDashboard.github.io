@@ -113,7 +113,7 @@ article {
 .blur {
   height: 12rem;
   width: 12rem;
-  background-color: #ff3cac;
+  background-color: #8ec94a;
   filter: blur(100px);
   border-radius: 100px;
   z-index: 0;
@@ -388,11 +388,15 @@ button {
 
 .content-hr {
   background-color: var(--accentHi);
-  padding: 20px;
+  padding: 10px;
   border-radius: 10px;
   position: relative;
   width: 100%;
-  max-width:650px;
+  max-width:300px;
+}
+
+.content-hr video{
+  width: 270px;
 }
 
 .content-hr img {
