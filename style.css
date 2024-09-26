@@ -392,11 +392,11 @@ button {
   border-radius: 10px;
   position: relative;
   width: 100%;
-  max-width:300px;
+  max-width:250px;
 }
 
 .content-hr video{
-  width: 270px;
+  width: 230px;
 }
 
 .content-hr img {
@@ -1171,7 +1171,7 @@ table tbody tr td {
 
 .marketing article img {
   width: 100%;
-  max-width: 500px;
+  max-width: 400px;
 }
 
 footer {
