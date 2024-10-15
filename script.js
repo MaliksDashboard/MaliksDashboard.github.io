@@ -2,7 +2,7 @@
     const sections = document.querySelectorAll("section");
     let currentSectionIndex = 0;
 
-    const sectionDurations = [20, 20, 20,120]; // Example durations for each section
+    const sectionDurations = [20, 25,120]; // Example durations for each section
 
     function scrollToNextSection() {
       currentSectionIndex = (currentSectionIndex + 1) % sections.length;
@@ -91,37 +91,30 @@ particlesJS("particles-js", {
 // };
 // requestAnimationFrame(update);
 
-document.addEventListener("DOMContentLoaded", function () {
-  let currentSlide = 0;
-  const slider = document.querySelector('.slider');
-  const slides = document.querySelectorAll('.slider img');
-  const totalSlides = slides.length;
+let slideIndex = 0;
+showSlides();
 
-  function autoSlide() {
-    currentSlide = (currentSlide + 1) % totalSlides;
-    slider.scrollLeft = currentSlide * slider.clientWidth; // Use scrollLeft instead of scrollIntoView
+function showSlides() {
+  let slides = document.getElementsByClassName("slide");
+  
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none"; // Hide all slides
   }
 
-  // Start the slideshow
-  setInterval(autoSlide, 7000); // Change slide every 5 seconds
-});
+  slideIndex++;
+  
+  if (slideIndex > slides.length) {
+    slideIndex = 1; // Loop back to the first slide
+  }
 
-function updateDate() {
-  const dateElement = document.getElementById("real-time-date");
+  slides[slideIndex - 1].style.display = "block"; // Show the current slide
+  
+  // Add a creative zoom effect
+  slides[slideIndex - 1].querySelector("img").style.transform = "scale(1.1)";
+  
+  setTimeout(() => {
+    slides[slideIndex - 1].querySelector("img").style.transform = "scale(1)";
+  }, 2500);
 
-  // Get the current date and time
-  const now = new Date();
-  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-
-  // Format the date and time
-  const formattedDate = now.toLocaleDateString('en-US', options);
-
-  // Update the content of the dateElement
-  dateElement.innerText = formattedDate;
+  setTimeout(showSlides, 5000); // Change slide every 5 seconds
 }
-
-// Update the date every second
-setInterval(updateDate, 1000);
-
-// Initial call to display the date right away
-updateDate();
