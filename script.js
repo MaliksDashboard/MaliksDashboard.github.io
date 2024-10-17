@@ -2,7 +2,7 @@
     const sections = document.querySelectorAll("section");
     let currentSectionIndex = 0;
 
-    const sectionDurations = [20, 25,120]; // Example durations for each section
+    const sectionDurations = [10,5,20,5,20,20,5,20,5,20,5,20]; // Example durations for each section
 
     function scrollToNextSection() {
       currentSectionIndex = (currentSectionIndex + 1) % sections.length;
@@ -91,30 +91,22 @@ particlesJS("particles-js", {
 // };
 // requestAnimationFrame(update);
 
+
 let slideIndex = 0;
 showSlides();
 
 function showSlides() {
   let slides = document.getElementsByClassName("slide");
-  
+
   for (let i = 0; i < slides.length; i++) {
     slides[i].style.display = "none"; // Hide all slides
   }
 
   slideIndex++;
-  
-  if (slideIndex > slides.length) {
-    slideIndex = 1; // Loop back to the first slide
+  if (slideIndex > slides.length) { 
+    slideIndex = 1;
   }
 
   slides[slideIndex - 1].style.display = "block"; // Show the current slide
-  
-  // Add a creative zoom effect
-  slides[slideIndex - 1].querySelector("img").style.transform = "scale(1.1)";
-  
-  setTimeout(() => {
-    slides[slideIndex - 1].querySelector("img").style.transform = "scale(1)";
-  }, 2500);
-
-  setTimeout(showSlides, 5000); // Change slide every 5 seconds
+  setTimeout(showSlides, 10000); // Change image every 5 seconds
 }

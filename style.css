@@ -304,7 +304,7 @@ button {
 }
 
 .malik-title p {
-  font-size: 1rem;
+  font-size: 2rem;
   color: var(--text);
 }
 
@@ -322,8 +322,9 @@ button {
 
 .malik article .content-table {
   border-collapse: collapse;
-  margin: 25px 0;
-  min-width: 530px;
+  width: 100%;
+  max-height: 90vh; /* Ensure table stays within screen height */
+  overflow-y: auto; /* Scroll if the table content is too long */
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 0 10px var(--accentHi);
@@ -345,6 +346,7 @@ button {
 .malik article .content-table th,
 .malik article .content-table td {
   padding: 5px 8px;
+  text-align: center;
 }
 
 .malik article .content-table tbody tr td {
@@ -371,6 +373,9 @@ button {
   transition: background-color 0.3s ease;
 }
 
+.hr{
+  width: 100%;
+}
 
 .hr article {
   margin: 0px 0;
@@ -379,6 +384,7 @@ button {
   gap: 20px;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .hr article h1 {
@@ -392,7 +398,6 @@ button {
   border-radius: 10px;
   position: relative;
   width: 100%;
-  max-width:250px;
 }
 
 .content-hr video{
@@ -612,9 +617,9 @@ table tbody tr td {
 
 .control article .content-control {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
   gap: 10px;
   width: 100%;
 }
@@ -1129,7 +1134,7 @@ table tbody tr td {
 
 .books article p {
   color: var(--text);
-  font-size: 1rem;
+  font-size: 2rem;
 }
 
 .books article .book-imgs {
@@ -1153,7 +1158,7 @@ table tbody tr td {
 }
 
 .books article .competition-body .competition-body-card {
-  width: 12rem;
+  width: 9.5rem;
 }
 
 .marketing article {
@@ -1162,6 +1167,8 @@ table tbody tr td {
   gap: 20px;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  justify-content: center;
 }
 
 .marketing .marketing-imgs{
@@ -1170,7 +1177,7 @@ table tbody tr td {
 }
 
 .marketing article img {
-  width: 100%;
+  width: 90%;
 }
 
 footer {
@@ -1309,34 +1316,98 @@ color: var(--text);
 }
 
 .slideshow-container {
-  width: 100%;
-  max-width: 900px;
   position: relative;
+  max-width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .slide {
   display: none;
 }
 
+.slide.active {
+  display: block;
+}
+
+
+.slide-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide.active img {
+  transform: scale(1.1);
+}
+
 .slide img {
   width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-  transition: transform 1s ease-in-out;
+  height: auto;
+}
+
+.overlay-text {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  text-align: center;
+  color: var(--text);
+  font-family: "Manrope", sans-serif;
+}
+
+.overlay-text h2 {
+  font-size: 3rem;
+  text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+  margin-bottom: 10px;
+}
+
+.overlay-text p {
+  font-size: 1.5rem;
+  text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .fade {
-  animation-name: fade;
-  animation-duration: 1s;
+  animation: fadeEffect 1s ease-in-out forwards;
 }
 
-@keyframes fade {
-  from { opacity: 0.4 }
-  to { opacity: 1 }
+@keyframes fadeEffect {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
+.slide img {
+  transform: scale(1.05);
+  transition: transform 1.5s ease-in-out;
+}
+
+.slide.active img {
+  transform: scale(1);
+}
 
 .e-store article h1{
   font-size: 2.2rem;
 }
 
+.random.container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.random img{
+  width: 100%;
+  max-width: 600px;
+}
+
+.random h1{
+  font-size: 2.5rem;
+}
+
+.malik .content-table tbody tr td img{
+  width: 30px;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+}
