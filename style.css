@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Manrope:700|Manrope:400");
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Modak&family=Rubik+Bubbles&display=swap');
+
 
 * {
   margin: 0;
@@ -31,11 +33,16 @@
   inset: 0;
 }
 
+html, body {
+  margin: 0;
+  padding: 0 ;
+  height: 100% ;
+}
+
 body {
-  font-family: "Manrope";
-  font-weight: 400;
-  background-color: var(--background) !important;
-  color: var(--text);
+  font-family: "Manrope", sans-serif;
+  background: linear-gradient(135deg, #1d1d1d, #0f0f0f); /* Rich gradient background */
+  color: hsl(0, 0%, 99%);
   padding: 0 10%;
   display: flex;
   flex-direction: column;
@@ -82,6 +89,27 @@ section {
   min-height: 100vh;
 }
 
+.first-quote {
+  font-size: 2.5rem;
+  color: var(--text);
+  text-align: center;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+  letter-spacing: 1.5px;
+  font-family: "Fredericka the Great", serif;
+}
+
 article {
   width: 100%;
   display: flex;
@@ -101,34 +129,76 @@ article {
   align-items: center;
   justify-content: center;
   z-index: -1;
+  opacity: 0.5;
 }
 
 .grid-svg {
-  height: 80%;
-  width: 80%;
-  position: relative;
-  z-index: 1;
+  height: 90%;
+  width: 90%;
+  filter: drop-shadow(0 0 20px rgba(0, 255, 100, 0.3)); /* Adds depth */
 }
 
 .blur {
-  height: 12rem;
-  width: 12rem;
-  background-color: #8ec94a;
-  filter: blur(100px);
+  height: 20rem;
+  width: 20rem;
+  background-color: rgba(142, 201, 74, 0.6); /* Softer blur */
+  filter: blur(150px); /* Stronger blur effect */
   border-radius: 100px;
   z-index: 0;
-  position: absolute;
+}
+
+@keyframes fadeGrid {
+  0% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes pulseBlur {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+.quote .title p {
+  margin: 0;
+  line-height: 1.5;
+  width: auto;
+  font-family: "Fredericka the Great", serif;
+}
+
+.quote .title p:nth-child(1) {
+  color: var(--primary);
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+  padding-bottom: 10px;
+}
+
+.quote b#real-time-date {
+  font-size: 1.2rem;
+  color: var(--accent);
 }
 
 .quote .title {
-  font-size: 6.5rem;
+  font-size: 4.5rem;
+  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-self: center;
   height: 100%;
   z-index: 1000;
-  line-height: 100px;
+  line-height: 1.2;
+  color: var(--text);
+  max-width: 80%;
+  padding: 20px;
+  border-radius: 10px;
+  font-family: "Fredericka the Great", serif;
 }
 
 .quote{
@@ -458,6 +528,7 @@ button {
 
 .operation .content-operation {
   display: flex;
+  flex-direction: column;
   background-color: var(--accentHi);
   padding: 20px;
   border-radius: 10px;
@@ -466,7 +537,7 @@ button {
   align-items: center;
   text-align: center;
   width: 100%;
-  max-width: 550px;
+  max-width: 200px;
   z-index: 1;
 }
 
@@ -483,6 +554,9 @@ button {
   max-width: 100px;
   height: 100px;
   border-radius: 50%;
+  aspect-ratio: 1/1;
+  background-color: white;
+  object-fit: scale-down;
 }
 
 .operation .content-operation .content-operation-header p {
@@ -967,7 +1041,7 @@ table tbody tr td {
 }
 
 .cashier article .malik-title p {
-  font-size: 1rem;
+  font-size: 2rem;
 }
 
 .cashier article .cashier-body {
@@ -1411,3 +1485,374 @@ color: var(--text);
   border-radius: 50%;
   aspect-ratio: 1/1;
 }
+
+.random{
+  display: flex;
+  flex-direction: column;
+}
+
+.random img{
+  position: relative;
+}
+
+.random .silva{
+  left: 620px;
+}
+
+.random p{
+  position: absolute;
+  bottom: 30px;
+  left: 220px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  background-color: rgba(255, 255, 255, .5);
+  padding: 10px;
+  color: rgb(41, 41, 41);
+  border-radius: 50px;
+}
+.slideshow-container .slide img{
+  position: relative;
+  width: 100%;
+  max-width: 650px;
+}
+
+.slideshow-container .slide p {
+  position: absolute;
+  color: white;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 1);
+  padding: 10px;
+  width: 100%;
+}
+
+
+.notifications-container {
+  width: 320px;
+  height: auto;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+
+@keyframes zoomEffect {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.alert {
+  background-color: rgb(254, 252, 232);
+  border-left-width: 4px;
+  border-color: rgb(250, 204, 21);
+  border-radius: 0.375rem;
+  padding: 1rem;
+  scale: 1.4;
+  animation: zoomEffect 3s infinite ease-in-out;
+}
+
+.alert-svg {
+  height: 1.25rem;
+  width: 1.25rem;
+  color: rgb(250 204 21);
+}
+
+.alert-prompt-wrap {
+  margin-left: 0.75rem;
+  color: rgb(202 138 4);
+}
+
+.alert-prompt-link {
+  font-weight: 500;
+  color: rgb(141, 56, 0);
+  text-decoration: underline;
+}
+
+.alert-prompt-link:hover {
+  color: rgb(202 138 4);
+}
+
+.alertt{
+  color: #333;
+  font-weight: bold;
+}
+
+/* Home section with an animated background and floating shapes */
+#home {
+  position: relative;
+  overflow: hidden; /* Ensures floating shapes stay within the section */
+  background: linear-gradient(135deg, #ff758c, #ff7eb3); /* Vibrant initial background */
+  animation: dynamicBg 20s infinite ease-in-out; /* Smooth background color change */
+  transition: background 1s ease-in-out;
+  height: 100vh; 
+  width: 100vw;
+}
+
+/* Background animation keyframes */
+@keyframes dynamicBg {
+  0% {
+    background: linear-gradient(135deg, #ff758c, #ff7eb3); /* Starting pink gradient */
+  }
+  25% {
+    background: linear-gradient(135deg, #42e695, #3bb2b8); /* Cool green and blue */
+  }
+  50% {
+    background: linear-gradient(135deg, #ff7eb3, #ff758c); /* Reverse of start */
+  }
+  75% {
+    background: linear-gradient(135deg, #cbb4d4, #20002c); /* Dark purple and lilac */
+  }
+  100% {
+    background: linear-gradient(135deg, #ff758c, #ff7eb3); /* Back to the start */
+  }
+}
+
+/* Floating particle shapes for creativity */
+#home::before,
+#home::after {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: float 10s infinite ease-in-out;
+  z-index: 0;
+}
+
+#home::before {
+  top: -50px;
+  left: -100px;
+  animation-duration: 15s;
+}
+
+#home::after {
+  bottom: -100px;
+  right: -150px;
+  animation-duration: 12s;
+}
+
+/* Keyframes for floating animation */
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(50px, -50px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* Quote styling without a box */
+.quote .title {
+  font-size: 4.5rem;
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  position: relative;
+  z-index: 2; /* Ensure the text is above the floating elements */
+}
+
+.quote .title::before {
+  content: "🌟";
+  position: absolute;
+  font-size: 6rem;
+  top: -100px;
+  right: 20px;
+  animation: spin 8s infinite linear; /* Rotating star for extra fun */
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Real-time date styling */
+#real-time-date {
+  font-size: 1.5rem;
+  color: #ffe4e1;
+  font-weight: bold;
+  text-align: center;
+  display: block;
+  margin-top: 10px;
+  z-index: 2;
+}
+
+/* Emojis or shapes floating around */
+#home .floating-emoji {
+  position: absolute;
+  font-size: 3rem;
+  animation: emojiFloat 10s infinite ease-in-out;
+}
+
+
+
+#home .floating-emoji:nth-child(2) {
+  bottom: 10px;
+  right: 10%;
+  animation-duration: 12s;
+}
+
+#home .floating-emoji:nth-child(3) {
+  top: 40%;
+  right: 30%;
+  animation-duration: 15s;
+}
+
+@keyframes emojiFloat {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+/* General alert container */
+.alerts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.alert {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #ffeb3b;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon wrapper */
+.alert-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ff9800;
+  aspect-ratio: 1/1;
+}
+
+.alert-icon {
+  width: 24px;
+  height: 24px;
+  color: white;
+}
+
+/* Alert content */
+.alert-content-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.alert-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.alert-message {
+  font-size: 1rem;
+  color: #333;
+}
+
+.alert-link {
+  color: #ff5722;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.alert-link:hover {
+  text-decoration: underline;
+}
+
+/* Floating bubble elements */
+.floating-elements {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.floating-bubble-s {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.7;
+  animation: bubbleFloat 5s infinite ease-in-out;
+  width: 100px;
+}
+
+.floating-elements span{
+  font-size: 4rem;
+}
+
+.floating-bubble-s:nth-child(1) {
+  top: 30%;
+  left: 80%;
+  animation-duration: 8s;
+}
+
+.floating-bubble-s:nth-child(2) {
+  bottom: 20%;
+  right: 15%;
+  animation-duration: 10s;
+}
+
+.floating-bubble-s:nth-child(3) {
+  top: 50%;
+  left: 10%;
+  animation-duration: 6s;
+}
+
+@keyframes bubbleFloat {
+  0% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-30px);
+  }
+  100% {
+      transform: translateY(0);
+  }
+}
+
+
