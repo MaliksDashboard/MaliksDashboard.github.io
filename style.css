@@ -402,7 +402,7 @@ button {
 }
 
 .elect article .content-table {
-  min-width: 3c50px;
+  min-width: 350px;
 }
 
 .malik article .content-table thead tr {
@@ -415,7 +415,7 @@ button {
 
 .malik article .content-table th,
 .malik article .content-table td {
-  padding: 5px 8px;
+  padding: 2px 5px;
   text-align: center;
 }
 
@@ -1595,6 +1595,16 @@ color: var(--text);
   font-weight: bold;
 }
 
+#home2 {
+  position: relative;
+  overflow: hidden;
+  background: url('IMGS/HR/6/cover.jpg') center center; /* Center the image */
+  background-size: contain; /* Ensure the whole image is visible */
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+}
+
+
 /* Home section with an animated background and floating shapes */
 #home {
   position: relative;
@@ -1854,5 +1864,38 @@ color: var(--text);
       transform: translateY(0);
   }
 }
+.slider-wrapper {
+  overflow: hidden;
+  margin: 0 auto;
+}
 
+.slider {
+  display: flex;
+  width: 200%; /* Two images, 100% each */
+  transition: transform 0.8s ease-in-out;
+}
 
+.slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensures the whole image fits inside */
+}
+
+.slider-nav {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.slider-nav a {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slider-nav a.active {
+  background-color: #333;
+}

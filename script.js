@@ -2,7 +2,7 @@
     const sections = document.querySelectorAll("section");
     let currentSectionIndex = 0;
 
-    const sectionDurations = [10,5,20,5,20,5,20,5,20,10,10]; // Example durations for each section
+    const sectionDurations = [15,5,20,5,20,15,20,5,20,20,5,20,5,20,15]; // Example durations for each section
 
     function scrollToNextSection() {
       currentSectionIndex = (currentSectionIndex + 1) % sections.length;
@@ -17,6 +17,36 @@
     setTimeout(scrollToNextSection, sectionDurations[currentSectionIndex] * 1000);
   });
 
+  document.addEventListener("DOMContentLoaded", function () {
+    const videos = document.querySelectorAll(".video");  // Select all videos
+    const videoSections = document.querySelectorAll(".video-section");  // Select all sections with video
+  
+    // Set all videos to start muted initially
+    videos.forEach(video => video.muted = true);
+  
+    // Initialize IntersectionObserver
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            const video = entry.target.querySelector(".video"); // Get video inside each section
+  
+            if (entry.isIntersecting) {
+                video.play().catch(error => console.log(error));  // Catch autoplay errors
+            } else {
+                video.pause();  // Pause the video when out of view
+            }
+        });
+    }, {
+        threshold: 0.5  // Trigger when 50% of the section is in view
+    });
+  
+    // Observe each video section
+    videoSections.forEach(section => observer.observe(section));
+  
+    // Unmute videos after the first user interaction
+    document.addEventListener("click", () => {
+      videos.forEach(video => video.muted = false);
+    }, { once: true });  // Runs only once on the first click
+  });
 particlesJS("particles-js", {
   particles: {
     number: { value: 160, density: { enable: true, value_area: 800 } },
@@ -110,3 +140,5 @@ function showSlides() {
   slides[slideIndex - 1].style.display = "block"; // Show the current slide
   setTimeout(showSlides, 10000); // Change image every 5 seconds
 }
+
+
