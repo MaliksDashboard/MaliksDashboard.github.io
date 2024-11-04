@@ -2,7 +2,7 @@
     const sections = document.querySelectorAll("section");
     let currentSectionIndex = 0;
 
-    const sectionDurations = [15,5,20,5,20,15,20,5,20,20,5,20,5,20,15]; // Example durations for each section
+    const sectionDurations = [15,5,20,5,15,15,5,20,5,5,5,5,15,20,5,15,5]; // Example durations for each section
 
     function scrollToNextSection() {
       currentSectionIndex = (currentSectionIndex + 1) % sections.length;
@@ -142,3 +142,26 @@ function showSlides() {
 }
 
 
+//slide show marketing
+document.addEventListener("DOMContentLoaded", function () {
+  let currentSlideIndex = 0;
+  const slides = document.querySelectorAll(".custom-slider-item");
+  const totalSlides = slides.length;
+
+  function showNextSlide() {
+      // Remove active class from the current slide
+      slides[currentSlideIndex].classList.remove("custom-active");
+
+      // Update the index to the next slide
+      currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
+
+      // Add active class to the new slide
+      slides[currentSlideIndex].classList.add("custom-active");
+  }
+
+  // Show the first slide initially
+  slides[currentSlideIndex].classList.add("custom-active");
+
+  // Set interval for slideshow transition every 5 seconds
+  setInterval(showNextSlide, 5000);
+});
