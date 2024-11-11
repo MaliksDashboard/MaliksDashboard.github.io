@@ -420,7 +420,8 @@ button {
 }
 
 .malik article .content-table tbody tr td {
-  font-size: 0.9rem;
+  font-size: 1.25rem;
+  padding: 15px;
   font-weight: bold;
   color: var(--text);
 }
@@ -1920,7 +1921,6 @@ color: var(--text);
   width: 850px;
   height: 500px;
   overflow: hidden;
-  border-radius: 10px;
 }
 
 /* Individual Slide Styles */
@@ -1940,4 +1940,72 @@ color: var(--text);
 
 .custom-active {
   opacity: 1;
+}
+
+#cashier .slideshow-container {
+  position: relative;
+  max-width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#cashier .slide {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: auto;
+}
+
+#cashier .slide.active {
+  display: block;
+}
+
+#cashier .slide img {
+  width: 100%;
+  height: auto;
+  max-height: 80vh; /* Adjust to fit within viewport */
+  object-fit: contain;
+}
+
+#cashier .slide p {
+  position: absolute;
+  color: white;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+
+.unique-slideshow-container {
+  position: relative;
+  width: 100%;
+  max-width: 650px; /* Adjust as needed */
+  margin: auto;
+}
+
+.unique-slide {
+  display: none; /* Hide all slides by default */
+  position: relative;
+  text-align: center;
+}
+
+.unique-slide img {
+  width: 100%;
+  height: auto;
+}
+
+.unique-slide p {
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgb(39, 39, 39);
+  color: white;
+  padding: 10px;
+  width: 100%;
+  font-size: 1.25rem;
 }

@@ -2,7 +2,7 @@
     const sections = document.querySelectorAll("section");
     let currentSectionIndex = 0;
 
-    const sectionDurations = [15,5,20,5,15,15,5,20,5,5,5,5,5,15,20,5,15,5]; // Example durations for each section
+    const sectionDurations = [15,5,20,5,5,15,5,20,5,15,15,20,5,10,5,20,5,15,31]; // Example durations for each section
 
     function scrollToNextSection() {
       currentSectionIndex = (currentSectionIndex + 1) % sections.length;
@@ -164,4 +164,41 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Set interval for slideshow transition every 5 seconds
   setInterval(showNextSlide, 5000);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  let slideIndex = 0;
+  const slides = document.querySelectorAll(".cashier-slide");
+
+  function showSlides() {
+      slides.forEach((slide, index) => {
+          slide.style.display = (index === slideIndex) ? "block" : "none";
+      });
+      slideIndex = (slideIndex + 1) % slides.length;
+  }
+
+  showSlides(); // Show the first slide
+  setInterval(showSlides, 10000); // Change image every 5 seconds
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  let uniqueSlideIndex = 0;
+  const uniqueSlides = document.querySelectorAll(".unique-slide");
+
+  if (uniqueSlides.length > 0) {
+      uniqueSlides[uniqueSlideIndex].style.display = "block"; // Show the first slide
+
+      function showUniqueSlides() {
+          // Hide all slides
+          uniqueSlides.forEach((slide) => (slide.style.display = "none"));
+
+          // Show the next slide
+          uniqueSlideIndex = (uniqueSlideIndex + 1) % uniqueSlides.length;
+          uniqueSlides[uniqueSlideIndex].style.display = "block";
+      }
+
+      setInterval(showUniqueSlides, 10000); // Change slide every 5 seconds
+  } else {
+      console.log("No slides found in #cashier-excellence section.");
+  }
 });
