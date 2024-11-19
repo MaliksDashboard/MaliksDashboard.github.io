@@ -2,7 +2,7 @@
     const sections = document.querySelectorAll("section");
     let currentSectionIndex = 0;
 
-    const sectionDurations = [15,5,20,5,5,15,5,20,5,15,15,20,5,10,5,20,5,15,31]; // Example durations for each section
+    const sectionDurations = [15,5,20,5,20,15,5,10,10,10,10,20,5,20,5,10,20,5,20,20,5,15,5,48,15]; // Example durations for each section
 
     function scrollToNextSection() {
       currentSectionIndex = (currentSectionIndex + 1) % sections.length;
@@ -121,25 +121,26 @@ particlesJS("particles-js", {
 // };
 // requestAnimationFrame(update);
 
+document.addEventListener("DOMContentLoaded", function () {
+  let slideIndex = 0;
+  const container = document.querySelector("#marketing-hr .slideshow-container");
+  const slides = container.querySelectorAll(".slide");
 
-let slideIndex = 0;
-showSlides();
-
-function showSlides() {
-  let slides = document.getElementsByClassName("slide");
-
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none"; // Hide all slides
+  if (slides.length === 0) {
+      console.error("No slides found in #marketing-hr");
+      return;
   }
 
-  slideIndex++;
-  if (slideIndex > slides.length) { 
-    slideIndex = 1;
+  function showSlides() {
+      slides.forEach((slide, index) => {
+          slide.style.display = index === slideIndex ? "block" : "none";
+      });
+      slideIndex = (slideIndex + 1) % slides.length;
   }
 
-  slides[slideIndex - 1].style.display = "block"; // Show the current slide
-  setTimeout(showSlides, 10000); // Change image every 5 seconds
-}
+  showSlides(); // Show the first slide
+  setInterval(showSlides, 10000); // Change slide every 5 seconds
+});
 
 
 //slide show marketing
@@ -163,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
   slides[currentSlideIndex].classList.add("custom-active");
 
   // Set interval for slideshow transition every 5 seconds
-  setInterval(showNextSlide, 5000);
+  setInterval(showNextSlide, 10000);
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -182,23 +183,76 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  let uniqueSlideIndex = 0;
-  const uniqueSlides = document.querySelectorAll(".unique-slide");
+  let currentSlideIndex = 0; // Start with the first slide
+  const slides = document.querySelectorAll("#cashier-excellence .unique-slide");
 
-  if (uniqueSlides.length > 0) {
-      uniqueSlides[uniqueSlideIndex].style.display = "block"; // Show the first slide
+  if (slides.length === 0) {
+      console.error("No slides found in #cashier-excellence.");
+      return;
+  }
 
-      function showUniqueSlides() {
-          // Hide all slides
-          uniqueSlides.forEach((slide) => (slide.style.display = "none"));
+  function showSlides() {
+      slides.forEach((slide, index) => {
+          slide.style.display = index === currentSlideIndex ? "block" : "none";
+      });
+      currentSlideIndex = (currentSlideIndex + 1) % slides.length; // Loop back to the first slide
+  }
 
-          // Show the next slide
-          uniqueSlideIndex = (uniqueSlideIndex + 1) % uniqueSlides.length;
-          uniqueSlides[uniqueSlideIndex].style.display = "block";
+  // Initialize the slideshow
+  showSlides();
+  setInterval(showSlides, 10000); // Change slides every 5 seconds
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  function initSlideshow(containerId) {
+      let slideIndex = 0;
+      const container = document.querySelector(`#${containerId}`);
+      const slides = container.querySelectorAll(".unique-slide");
+
+      if (slides.length === 0) {
+          console.error(`No slides found in #${containerId}`);
+          return;
       }
 
-      setInterval(showUniqueSlides, 10000); // Change slide every 5 seconds
-  } else {
-      console.log("No slides found in #cashier-excellence section.");
+      function showSlides() {
+          slides.forEach((slide, index) => {
+              slide.style.display = index === slideIndex ? "block" : "none";
+          });
+          slideIndex = (slideIndex + 1) % slides.length;
+      }
+
+      showSlides(); // Show the first slide
+      setInterval(showSlides, 10000); // Change image every 5 seconds
   }
+
+  // Initialize your slideshow
+  initSlideshow("slideshow-new");
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  function initSlideshow(containerId) {
+      let slideIndex = 0;
+      const container = document.querySelector(`#${containerId}`);
+      const slides = container.querySelectorAll(".slide");
+
+      if (slides.length === 0) {
+          console.error(`No slides found in #${containerId}`);
+          return;
+      }
+
+      function showSlides() {
+          slides.forEach((slide, index) => {
+              slide.style.display = index === slideIndex ? "block" : "none";
+          });
+          slideIndex = (slideIndex + 1) % slides.length;
+      }
+
+      showSlides(); // Show the first slide
+      setInterval(showSlides, 10000); // Change slide every 5 seconds
+  }
+
+  // Initialize the new slideshow
+  initSlideshow("slideshow-products");
 });
