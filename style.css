@@ -31,6 +31,8 @@
   z-index: -1;
   position: fixed;
   inset: 0;
+    background: linear-gradient(135deg, #0f0f3d, #1a1a5e); /* Dark blue gradient for night sky */
+
 }
 
 html, body {
@@ -101,7 +103,7 @@ section {
 }
 
 .section-title {
-  font-size: 3rem;
+  font-size: 1rem;
   font-weight: bold;
   color: white;
   text-align: center;
@@ -2106,4 +2108,51 @@ color: var(--text);
 /* For the active slide */
 .slide.active {
   display: block; /* Show the active slide */
+}
+
+
+.dad-jokes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+  background-color: var(--primaryBg);
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.dad-jokes .section-title {
+  font-size: 3.5rem;
+  font-family: "Fredericka the Great", serif;
+  color: var(--text);
+  text-shadow: 0 0 10px var(--primary);
+}
+
+.joke-container {
+  background: linear-gradient(135deg, #1f1f1f, #292929);
+  padding: 20px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  max-width: 600px;
+  text-align: center;
+}
+
+.joke p {
+  font-size: 1.5rem;
+  color: var(--textDim);
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+.joke .highlight {
+  color: var(--accent);
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.joke b {
+  color: var(--primaryFg);
+  font-weight: bold;
 }
