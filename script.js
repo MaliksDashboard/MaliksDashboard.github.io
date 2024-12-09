@@ -2,7 +2,7 @@
     const sections = document.querySelectorAll("section");
     let currentSectionIndex = 0;
 
-    const sectionDurations = [15,5,20,5,20,5,15,5,15,5,20,5,10,5,15,5,15,5,15,15]; // Example durations for each section
+    const sectionDurations = [15,5,20,5,15,5,15,5,15,12,10,5,15,20,5,20,5,20,10,15]; // Example durations for each section
 
     function scrollToNextSection() {
       currentSectionIndex = (currentSectionIndex + 1) % sections.length;
@@ -55,7 +55,7 @@
       shape: {
         type: "image",
         image: {
-          src: "IMGS/snowflake.png", // Add your snowflake image URL
+          src: "IMGS/tree.png", // Add your snowflake image URL
           width: 100,
           height: 100,
         },
@@ -198,7 +198,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Initialize the slideshow
   showSlides();
-  setInterval(showSlides, 10000); // Change slides every 5 seconds
+  setInterval(showSlides, 5000); // Change slides every 5 seconds
 });
 
 
@@ -221,7 +221,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       showSlides(); // Show the first slide
-      setInterval(showSlides, 10000); // Change image every 5 seconds
+      setInterval(showSlides, 5000); // Change image every 5 seconds
   }
 
   // Initialize your slideshow

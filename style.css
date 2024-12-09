@@ -31,7 +31,7 @@
   z-index: -1;
   position: fixed;
   inset: 0;
-    background: linear-gradient(135deg, #0f0f3d, #1a1a5e); /* Dark blue gradient for night sky */
+    background: linear-gradient(135deg, #8f0000, #5e1a1a); /* Dark blue gradient for night sky */
 
 }
 
