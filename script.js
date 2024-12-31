@@ -2,7 +2,7 @@
     const sections = document.querySelectorAll("section");
     let currentSectionIndex = 0;
 
-    const sectionDurations = [15,20,5,20,5,15,5,10,5,20,5,15,10,5,7,5,10,10]; // Example durations for each section
+    const sectionDurations = [15,7,7,7,15,15,7,7,7,20,7,7,7,20,10,10,10,10,7,7,7,10,10,10,15]; // Example durations for each section
 
     function scrollToNextSection() {
       currentSectionIndex = (currentSectionIndex + 1) % sections.length;

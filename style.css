@@ -418,11 +418,12 @@ button {
 .malik article .content-table th,
 .malik article .content-table td {
   padding: 2px 5px;
+  font-size: 12px;
   text-align: center;
 }
 
 .malik article .content-table tbody tr td {
-  font-size: 1rem;
+  font-size: 12px;
   padding: 5px;
   font-weight: bold;
   color: var(--text);
