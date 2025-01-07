@@ -2,7 +2,7 @@
     const sections = document.querySelectorAll("section");
     let currentSectionIndex = 0;
 
-    const sectionDurations = [15,7,7,7,15,15,7,7,7,20,7,7,7,20,10,10,10,10,7,7,7,10,10,10,15]; // Example durations for each section
+    const sectionDurations = [15,10,20,10,20,10,20,10,20,10,15,10,50,15]; // Example durations for each section
 
     function scrollToNextSection() {
       currentSectionIndex = (currentSectionIndex + 1) % sections.length;
@@ -50,33 +50,28 @@
 
   particlesJS("particles-js", {
     particles: {
-      number: { value: 400, density: { enable: true, value_area: 800 } },
-      color: { value: ["#ffffff", "#ff0000", "#00ff00"] }, // White for snow, red & green for Christmas
+      number: { value: 200, density: { enable: true, value_area: 800 } }, // Fewer particles for simplicity
+      color: { value: ["#555555", "#888888", "#ffffff"] }, // Neutral gray tones with white
       shape: {
-        type: "image",
-        image: {
-          src: "IMGS/tree.png", // Add your snowflake image URL
-          width: 100,
-          height: 100,
-        },
+        type: "circle", // Simple circle shape
       },
       opacity: {
-        value: 0.7,
+        value: 0.6,
         random: true,
-        anim: { enable: true, speed: 1, opacity_min: 0.2, sync: false },
+        anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false },
       },
       size: {
-        value: 10,
+        value: 5,
         random: true,
-        anim: { enable: true, speed: 2, size_min: 0.5, sync: false },
+        anim: { enable: true, speed: 2, size_min: 1, sync: false },
       },
       line_linked: {
-        enable: false, // No connecting lines for a cleaner look
+        enable: false, // No connecting lines
       },
       move: {
         enable: true,
-        speed: 2, // Slow drifting like falling snow
-        direction: "bottom", // Particles fall down like snow
+        speed: 1.5, // Smooth drifting movement
+        direction: "bottom", // Particles fall down
         random: false,
         straight: false,
         out_mode: "out",
@@ -86,19 +81,17 @@
     interactivity: {
       detect_on: "canvas",
       events: {
-        onhover: { enable: true, mode: "bubble" },
+        onhover: { enable: false }, // Hover effects disabled for simplicity
         onclick: { enable: true, mode: "repulse" },
         resize: true,
       },
       modes: {
-        bubble: { distance: 200, size: 6, duration: 2, opacity: 0.8, speed: 3 },
-        repulse: { distance: 300, duration: 0.4 },
-        push: { particles_nb: 4 },
-        remove: { particles_nb: 2 },
+        repulse: { distance: 200, duration: 0.4 },
       },
     },
     retina_detect: true,
   });
+  
   
 
 // var count_particles, stats, update;
