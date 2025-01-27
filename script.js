@@ -2,7 +2,7 @@
     const sections = document.querySelectorAll("section");
     let currentSectionIndex = 0;
 
-    const sectionDurations = [20,10,20,10,20,10,10,20,10,20,10,58,20];
+    const sectionDurations = [15,10,10,10,10,10,20,10,20,10,10,10,15,10,20,10];
 
     function scrollToNextSection() {
       currentSectionIndex = (currentSectionIndex + 1) % sections.length;
@@ -191,7 +191,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Initialize the slideshow
   showSlides();
-  setInterval(showSlides, 5000); // Change slides every 5 seconds
+  setInterval(showSlides, 10000); // Change slides every 5 seconds
 });
 
 
