@@ -2128,12 +2128,12 @@ color: var(--text);
 .tips-title {
   font-size: 2.5rem;
   color: #ffcc00;
-  margin-bottom: 20px;
+  margin-bottom: -0px;
 }
 
 .tips-intro {
   font-size: 1.3rem;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   color: #fff;
 }
 

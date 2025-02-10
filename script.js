@@ -1,21 +1,21 @@
-  document.addEventListener("DOMContentLoaded", function () {
-    const sections = document.querySelectorAll("section");
-    let currentSectionIndex = 0;
+  // document.addEventListener("DOMContentLoaded", function () {
+  //   const sections = document.querySelectorAll("section");
+  //   let currentSectionIndex = 0;
 
-    const sectionDurations = [15,10,10,10,10,10,20,10,20,10,10,10,15,10,20,10];
+  //   const sectionDurations = [20,15,20,15,20,15,30,15,20,15,20,15,20,40,15,65,15,15,15];
 
-    function scrollToNextSection() {
-      currentSectionIndex = (currentSectionIndex + 1) % sections.length;
-      sections[currentSectionIndex].scrollIntoView({ behavior: "smooth" });
+  //   function scrollToNextSection() {
+  //     currentSectionIndex = (currentSectionIndex + 1) % sections.length;
+  //     sections[currentSectionIndex].scrollIntoView({ behavior: "smooth" });
 
-      setTimeout(
-        scrollToNextSection,
-        sectionDurations[currentSectionIndex] * 1000
-      );
-    }
+  //     setTimeout(
+  //       scrollToNextSection,
+  //       sectionDurations[currentSectionIndex] * 1000
+  //     );
+  //   }
 
-    setTimeout(scrollToNextSection, sectionDurations[currentSectionIndex] * 1000);
-  });
+  //   setTimeout(scrollToNextSection, sectionDurations[currentSectionIndex] * 1000);
+  // });
 
   document.addEventListener("DOMContentLoaded", function () {
     const videos = document.querySelectorAll(".video");  // Select all videos
@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   showSlides(); // Show the first slide
-  setInterval(showSlides, 10000); // Change slide every 5 seconds
+  setInterval(showSlides, 15000); // Change slide every 5 seconds
 });
 
 
@@ -191,22 +191,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Initialize the slideshow
   showSlides();
-  setInterval(showSlides, 10000); // Change slides every 5 seconds
+  setInterval(showSlides, 7000); // Change slides every 5 seconds
 });
 
-
 document.addEventListener("DOMContentLoaded", function () {
-  function initSlideshow(containerId) {
+  function initSlideshow(containerId, duration = 7000) {
       let slideIndex = 0;
       const container = document.querySelector(`#${containerId}`);
-      const slides = container.querySelectorAll(".unique-slide");
+      const slides = container ? container.querySelectorAll(".unique-slide") : [];
 
-      if (slides.length === 0) {
+      if (!container || slides.length === 0) {
           console.error(`No slides found in #${containerId}`);
           return;
       }
 
       function showSlides() {
+          console.log(`Slideshow: ${containerId}, Index: ${slideIndex}`); // Debugging
           slides.forEach((slide, index) => {
               slide.style.display = index === slideIndex ? "block" : "none";
           });
@@ -214,13 +214,14 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       showSlides(); // Show the first slide
-      setInterval(showSlides, 5000); // Change image every 5 seconds
+      setInterval(showSlides, duration);
   }
 
-  // Initialize your slideshow
-  initSlideshow("slideshow-new");
+  // Initialize multiple slideshows
+  initSlideshow("cashier-excellence", 7000);
+  initSlideshow("slideshow-new", 10000);
+  initSlideshow("slideshow-products", 1000);
 });
-
 
 document.addEventListener("DOMContentLoaded", function () {
   function initSlideshow(containerId) {
