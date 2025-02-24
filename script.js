@@ -2,7 +2,7 @@
     const sections = document.querySelectorAll("section");
     let currentSectionIndex = 0;
 
-    const sectionDurations = [20,15,20,15,20,15,30,15,20,15,20,15,20,40,15,65,15,15,15];
+    const sectionDurations = [15,15,20,15,20,15,20,15,10,15,20,15,15,15,20,15,35,60,15,15,15,15,15,15,15,22];
 
     function scrollToNextSection() {
       currentSectionIndex = (currentSectionIndex + 1) % sections.length;
@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Initialize multiple slideshows
-  initSlideshow("cashier-excellence", 7000);
+  initSlideshow("cashier-excellence", 10000);
   initSlideshow("slideshow-new", 10000);
   initSlideshow("slideshow-products", 1000);
 });
