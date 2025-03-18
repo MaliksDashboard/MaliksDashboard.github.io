@@ -1,24 +1,24 @@
-// document.addEventListener("DOMContentLoaded", function () {
-//   const sections = document.querySelectorAll("section");
-//   let currentSectionIndex = 0;
+document.addEventListener("DOMContentLoaded", function () {
+  const sections = document.querySelectorAll("section");
+  let currentSectionIndex = 0;
 
-//   const sectionDurations = [
-//     20, 15, 20, 15, 30, 15, 20, 15, 10, 15, 15, 15, 20, 15, 20, 15, 45, 15, 10,
-//     10,
-//   ];
+  const sectionDurations = [
+    20, 15, 50, 15, 40, 15, 20, 15, 15, 15, 15, 15, 20, 15, 30, 15, 50, 15, 50,
+    20, 30,
+  ];
 
-//   function scrollToNextSection() {
-//     currentSectionIndex = (currentSectionIndex + 1) % sections.length;
-//     sections[currentSectionIndex].scrollIntoView({ behavior: "smooth" });
+  function scrollToNextSection() {
+    currentSectionIndex = (currentSectionIndex + 1) % sections.length;
+    sections[currentSectionIndex].scrollIntoView({ behavior: "smooth" });
 
-//     setTimeout(
-//       scrollToNextSection,
-//       sectionDurations[currentSectionIndex] * 1000
-//     );
-//   }
+    setTimeout(
+      scrollToNextSection,
+      sectionDurations[currentSectionIndex] * 1000
+    );
+  }
 
-//   setTimeout(scrollToNextSection, sectionDurations[currentSectionIndex] * 1000);
-// });
+  setTimeout(scrollToNextSection, sectionDurations[currentSectionIndex] * 1000);
+});
 
 document.addEventListener("DOMContentLoaded", function () {
   const videos = document.querySelectorAll(".video"); // Select all videos
