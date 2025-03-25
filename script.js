@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
   let currentSectionIndex = 0;
 
   const sectionDurations = [
-    20, 15, 50, 15, 40, 15, 20, 15, 15, 15, 15, 15, 20, 15, 30, 15, 50, 15, 50,
-    20, 30,
+    20, 15, 15, 30, 15, 20, 15, 15, 15, 15, 15, 27, 15, 15, 20, 15, 45, 15, 15,
+    15, 15, 60,
   ];
 
   function scrollToNextSection() {
