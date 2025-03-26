@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const sectionDurations = [
     20, 15, 15, 30, 15, 20, 15, 15, 15, 15, 15, 27, 15, 15, 20, 15, 45, 15, 15,
-    15, 15, 60, 324,
+    15, 15, 60, 65,
   ];
 
   function scrollToNextSection() {
