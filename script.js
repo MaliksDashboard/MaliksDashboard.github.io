@@ -1,259 +1,186 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const sections = document.querySelectorAll("section");
-  let currentSectionIndex = 0;
+document.addEventListener("DOMContentLoaded", () => {
+  const mainContainer = document.querySelector("main.horizontal-scroll");
+  const mainSlides = document.querySelectorAll(".slide");
+  const videos = document.querySelectorAll(".video");
+  const innerSlideshows = document.querySelectorAll(
+    ".image-slideshow, .slideshow-wrapper, .feedback-carousel"
+  );
+  let currentMainIndex = 0;
+  let mainSlideTimeout;
+  const innerIntervals = new Map();
 
-  const sectionDurations = [
-    20, 15, 15, 30, 15, 20, 15, 15, 15, 15, 15, 27, 15, 15, 20, 15, 45, 15, 15,
-    15, 15, 60, 65,
-  ];
+  // Main Slide Logic
+  function scrollToSlide(index) {
+    if (index >= mainSlides.length) index = 0;
+    const slide = mainSlides[index];
+    slide.scrollIntoView({ behavior: "smooth", inline: "start" });
 
-  function scrollToNextSection() {
-    currentSectionIndex = (currentSectionIndex + 1) % sections.length;
-    sections[currentSectionIndex].scrollIntoView({ behavior: "smooth" });
+    updateVideos(index);
+    updateInnerSlideshows(index);
 
-    setTimeout(
-      scrollToNextSection,
-      sectionDurations[currentSectionIndex] * 1000
+    const duration = parseInt(slide.getAttribute("data-duration")) || 10000;
+    clearTimeout(mainSlideTimeout);
+    mainSlideTimeout = setTimeout(() => scrollToSlide(index + 1), duration);
+    currentMainIndex = index;
+  }
+
+  // Video Logic
+  function updateVideos(activeIndex) {
+    videos.forEach((video) => {
+      const parentSlide = video.closest(".slide");
+      if (mainSlides[activeIndex] === parentSlide) {
+        video.play().catch((err) => console.warn("Autoplay issue:", err));
+      } else {
+        video.pause();
+        video.currentTime = 0;
+      }
+    });
+  }
+
+  // Inner Slideshows Logic
+  function startInnerSlideshow(container) {
+    const slides = container.querySelectorAll(
+      ".image-slide, .slideshow-slide, .feedback-card"
     );
+    if (slides.length === 0) return;
+    let innerIndex = 0;
+    slides.forEach((slide, i) =>
+      slide.classList.toggle("active", i === innerIndex)
+    );
+
+    const duration = parseInt(container.getAttribute("data-duration")) || 7000;
+    const interval = setInterval(() => {
+      slides[innerIndex].classList.remove("active");
+      innerIndex = (innerIndex + 1) % slides.length;
+      slides[innerIndex].classList.add("active");
+
+      // Update feedback counter if present
+      const counter = container.querySelector(".feedback-counter");
+      if (counter) counter.textContent = `${innerIndex + 1}/${slides.length}`;
+    }, duration);
+
+    innerIntervals.set(container, interval);
   }
 
-  setTimeout(scrollToNextSection, sectionDurations[currentSectionIndex] * 1000);
-});
+  function stopInnerSlideshow(container) {
+    const interval = innerIntervals.get(container);
+    if (interval) {
+      clearInterval(interval);
+      innerIntervals.delete(container);
+    }
+  }
 
-document.addEventListener("DOMContentLoaded", function () {
-  const videos = document.querySelectorAll(".video"); // Select all videos
-  const videoSections = document.querySelectorAll(".video-section"); // Select all sections with video
-
-  // Set all videos to start muted initially
-  videos.forEach((video) => (video.muted = true));
-
-  // Initialize IntersectionObserver
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        const video = entry.target.querySelector(".video"); // Get video inside each section
-
-        if (entry.isIntersecting) {
-          video.play().catch((error) => console.log(error)); // Catch autoplay errors
-        } else {
-          video.pause(); // Pause the video when out of view
+  function updateInnerSlideshows(activeIndex) {
+    innerSlideshows.forEach((slideshow) => {
+      const parentSlide = slideshow.closest(".slide");
+      if (mainSlides[activeIndex] === parentSlide) {
+        if (!innerIntervals.has(slideshow)) {
+          startInnerSlideshow(slideshow);
         }
-      });
-    },
-    {
-      threshold: 0.5, // Trigger when 50% of the section is in view
-    }
-  );
-
-  // Observe each video section
-  videoSections.forEach((section) => observer.observe(section));
-
-  // Unmute videos after the first user interaction
-  document.addEventListener(
-    "click",
-    () => {
-      videos.forEach((video) => (video.muted = false));
-    },
-    { once: true }
-  ); // Runs only once on the first click
-});
-
-particlesJS("particles-js", {
-  particles: {
-    number: { value: 200, density: { enable: true, value_area: 800 } }, // Fewer particles for simplicity
-    color: { value: ["#555555", "#888888", "#ffffff"] }, // Neutral gray tones with white
-    shape: {
-      type: "circle", // Simple circle shape
-    },
-    opacity: {
-      value: 0.6,
-      random: true,
-      anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false },
-    },
-    size: {
-      value: 5,
-      random: true,
-      anim: { enable: true, speed: 2, size_min: 1, sync: false },
-    },
-    line_linked: {
-      enable: false, // No connecting lines
-    },
-    move: {
-      enable: true,
-      speed: 1.5, // Smooth drifting movement
-      direction: "bottom", // Particles fall down
-      random: false,
-      straight: false,
-      out_mode: "out",
-      bounce: false,
-    },
-  },
-  interactivity: {
-    detect_on: "canvas",
-    events: {
-      onhover: { enable: false }, // Hover effects disabled for simplicity
-      onclick: { enable: true, mode: "repulse" },
-      resize: true,
-    },
-    modes: {
-      repulse: { distance: 200, duration: 0.4 },
-    },
-  },
-  retina_detect: true,
-});
-
-// var count_particles, stats, update;
-// stats = new Stats();
-// stats.setMode(0);
-// stats.domElement.style.position = "absolute";
-// stats.domElement.style.left = "0px";
-// stats.domElement.style.top = "0px";
-// document.body.appendChild(stats.domElement);
-// count_particles = document.querySelector(".js-count-particles");
-// update = function () {
-//   stats.begin();
-//   stats.end();
-//   if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
-//     count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
-//   }
-//   requestAnimationFrame(update);
-// };
-// requestAnimationFrame(update);
-
-document.addEventListener("DOMContentLoaded", function () {
-  let slideIndex = 0;
-  const container = document.querySelector(
-    "#marketing-hr .slideshow-container"
-  );
-  const slides = container.querySelectorAll(".slide");
-
-  if (slides.length === 0) {
-    console.error("No slides found in #marketing-hr");
-    return;
-  }
-
-  function showSlides() {
-    slides.forEach((slide, index) => {
-      slide.style.display = index === slideIndex ? "block" : "none";
+      } else {
+        stopInnerSlideshow(slideshow);
+      }
     });
-    slideIndex = (slideIndex + 1) % slides.length;
   }
 
-  showSlides(); // Show the first slide
-  setInterval(showSlides, 15000); // Change slide every 5 seconds
+  // Save/Restore Scroll Position
+  const savedScroll = localStorage.getItem("slideScrollX");
+  if (savedScroll) mainContainer.scrollLeft = parseInt(savedScroll, 10);
+
+  mainContainer.addEventListener("scroll", () => {
+    localStorage.setItem("slideScrollX", mainContainer.scrollLeft);
+  });
+
+  scrollToSlide(0);
 });
 
-//slide show marketing
-document.addEventListener("DOMContentLoaded", function () {
-  let currentSlideIndex = 0;
-  const slides = document.querySelectorAll(".custom-slider-item");
-  const totalSlides = slides.length;
+// ✅ KEEP YOUR FLOWER ANIMATION EXACTLY AS IT IS
+const canvas = document.getElementById("spring-canvas");
+const ctx = canvas.getContext("2d");
 
-  function showNextSlide() {
-    // Remove active class from the current slide
-    slides[currentSlideIndex].classList.remove("custom-active");
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+window.addEventListener("resize", resizeCanvas);
+resizeCanvas();
 
-    // Update the index to the next slide
-    currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
-
-    // Add active class to the new slide
-    slides[currentSlideIndex].classList.add("custom-active");
+class Petal {
+  constructor() {
+    this.reset();
   }
 
-  // Show the first slide initially
-  slides[currentSlideIndex].classList.add("custom-active");
+  reset() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * -canvas.height;
+    this.size = 15 + Math.random() * 10;
+    this.speedY = 1 + Math.random() * 1.5;
+    this.speedX = Math.random() * 1 - 0.5;
+    this.rotation = Math.random() * 360;
+    this.rotationSpeed = Math.random() * 2 - 1;
 
-  // Set interval for slideshow transition every 5 seconds
-  setInterval(showNextSlide, 10000);
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  let slideIndex = 0;
-  const slides = document.querySelectorAll(".cashier-slide");
-
-  function showSlides() {
-    slides.forEach((slide, index) => {
-      slide.style.display = index === slideIndex ? "block" : "none";
-    });
-    slideIndex = (slideIndex + 1) % slides.length;
+    const pastelColors = [
+      "#E69599",
+      "#E6B1C0",
+      "#C5C5D2",
+      "#EFE8A5",
+      "#B5A7B5",
+      "#E6B8C1",
+      "#B0E4E4",
+      "#D1C270",
+    ];
+    this.color = pastelColors[Math.floor(Math.random() * pastelColors.length)];
   }
 
-  showSlides(); // Show the first slide
-  setInterval(showSlides, 10000); // Change image every 5 seconds
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  let currentSlideIndex = 0; // Start with the first slide
-  const slides = document.querySelectorAll("#cashier-excellence .unique-slide");
-
-  if (slides.length === 0) {
-    console.error("No slides found in #cashier-excellence.");
-    return;
+  update() {
+    this.y += this.speedY;
+    this.x += this.speedX;
+    this.rotation += this.rotationSpeed;
+    if (this.y > canvas.height + this.size) {
+      this.reset();
+    }
   }
 
-  function showSlides() {
-    slides.forEach((slide, index) => {
-      slide.style.display = index === currentSlideIndex ? "block" : "none";
-    });
-    currentSlideIndex = (currentSlideIndex + 1) % slides.length; // Loop back to the first slide
-  }
+  draw() {
+    ctx.save();
+    ctx.translate(this.x, this.y);
+    ctx.rotate((this.rotation * Math.PI) / 180);
 
-  // Initialize the slideshow
-  showSlides();
-  setInterval(showSlides, 7000); // Change slides every 5 seconds
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  function initSlideshow(containerId, duration = 7000) {
-    let slideIndex = 0;
-    const container = document.querySelector(`#${containerId}`);
-    const slides = container ? container.querySelectorAll(".unique-slide") : [];
-
-    if (!container || slides.length === 0) {
-      console.error(`No slides found in #${containerId}`);
-      return;
+    ctx.fillStyle = this.color;
+    const petalCount = 5;
+    for (let i = 0; i < petalCount; i++) {
+      ctx.beginPath();
+      ctx.rotate((Math.PI * 2) / petalCount);
+      ctx.ellipse(
+        0,
+        this.size / 2.5,
+        this.size * 0.3,
+        this.size * 0.8,
+        0,
+        0,
+        2 * Math.PI
+      );
+      ctx.fill();
     }
 
-    function showSlides() {
-      console.log(`Slideshow: ${containerId}, Index: ${slideIndex}`); // Debugging
-      slides.forEach((slide, index) => {
-        slide.style.display = index === slideIndex ? "block" : "none";
-      });
-      slideIndex = (slideIndex + 1) % slides.length;
-    }
+    ctx.beginPath();
+    ctx.fillStyle = "#ffffff";
+    ctx.arc(0, 0, this.size * 0.4, 0, 4 * Math.PI);
+    ctx.fill();
 
-    showSlides(); // Show the first slide
-    setInterval(showSlides, duration);
+    ctx.restore();
   }
+}
 
-  // Initialize multiple slideshows
-  initSlideshow("cashier-excellence", 10000);
-  initSlideshow("slideshow-new", 10000);
-  initSlideshow("slideshow-products", 1000);
-});
+const petals = Array.from({ length: 100 }, () => new Petal());
 
-document.addEventListener("DOMContentLoaded", function () {
-  function initSlideshow(containerId) {
-    let slideIndex = 0;
-    const container = document.querySelector(`#${containerId}`);
-    const slides = container.querySelectorAll(".slide");
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  petals.forEach((p) => {
+    p.update();
+    p.draw();
+  });
+  requestAnimationFrame(animate);
+}
 
-    if (slides.length === 0) {
-      console.error(`No slides found in #${containerId}`);
-      return;
-    }
-
-    function showSlides() {
-      slides.forEach((slide, index) => {
-        slide.style.display = index === slideIndex ? "block" : "none";
-      });
-      slideIndex = (slideIndex + 1) % slides.length;
-    }
-
-    showSlides(); // Show the first slide
-    setInterval(showSlides, 10000); // Change slide every 5 seconds
-  }
-
-  // Initialize the new slideshow
-  initSlideshow("slideshow-products");
-});
+animate();
