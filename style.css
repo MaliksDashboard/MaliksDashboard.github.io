@@ -345,7 +345,7 @@ main.horizontal-scroll {
 
 .feedback-carousel {
   width: 100%;
-  max-width: 600px;
+  max-width: 800px;
   position: relative;
   overflow: hidden;
   min-height: 420px;
@@ -388,7 +388,7 @@ main.horizontal-scroll {
 }
 
 .feedback-card p {
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: #ddd;
   font-style: italic;
   line-height: 1.5;

@@ -9,20 +9,19 @@ document.addEventListener("DOMContentLoaded", () => {
   let mainSlideTimeout;
   const innerIntervals = new Map();
 
-  // Main Slide Logic
-  function scrollToSlide(index) {
-    if (index >= mainSlides.length) index = 0;
-    const slide = mainSlides[index];
-    slide.scrollIntoView({ behavior: "smooth", inline: "start" });
+  // function scrollToSlide(index) {
+  //   if (index >= mainSlides.length) index = 0;
+  //   const slide = mainSlides[index];
+  //   slide.scrollIntoView({ behavior: "smooth", inline: "start" });
 
-    updateVideos(index);
-    updateInnerSlideshows(index);
+  //   updateVideos(index);
+  //   updateInnerSlideshows(index);
 
-    const duration = parseInt(slide.getAttribute("data-duration")) || 10000;
-    clearTimeout(mainSlideTimeout);
-    mainSlideTimeout = setTimeout(() => scrollToSlide(index + 1), duration);
-    currentMainIndex = index;
-  }
+  //   const duration = parseInt(slide.getAttribute("data-duration")) || 10000;
+  //   clearTimeout(mainSlideTimeout);
+  //   mainSlideTimeout = setTimeout(() => scrollToSlide(index + 1), duration);
+  //   currentMainIndex = index;
+  // }
 
   // Video Logic
   function updateVideos(activeIndex) {
