@@ -3,161 +3,302 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kitchen TV Slides</title>
+    <title>Spring Kitchen TV Slides</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
+    <!-- Spring Animation Canvas -->
     <canvas id="spring-canvas"></canvas>
 
-    <main class="horizontal-scroll">
-      <!-- First section The Monday Pill -->
-      <section class="slide bg-image-slide" data-duration="15000"></section>
-      <!-- End of the First Section  -->
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
 
-      <!-- Randomeye Section  -->
-      <section class="slide landscape-image-slide" data-duration="10000">
-        <div class="landscape-img-box">
-          <img src="assets/images/randoms/1.jpg" alt="Special Dish" />
-          <div class="landscape-img-caption">
-            Breakfast vibes with Doculand Marhaf — foul, fateh, and hommos! 😎
+    <!-- Clock Display -->
+    <div class="clock-display" id="clockDisplay"></div>
+
+    <!-- Development Controls -->
+    <div class="dev-controls" id="devControls">
+      <div class="dev-controls-toggle" id="devControlsToggle">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="12" cy="12" r="3"></circle>
+          <path
+            d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
+          ></path>
+        </svg>
+      </div>
+      <div class="dev-controls-panel">
+        <div class="dev-controls-section">
+          <button id="prevBtn" class="control-btn">Previous</button>
+          <button id="pauseBtn" class="control-btn">Pause</button>
+          <button id="nextBtn" class="control-btn">Next</button>
+        </div>
+        <div class="dev-controls-section">
+          <div class="slide-indicator" id="slideIndicator">1 / 20</div>
+          <select id="slideSelect" class="slide-select">
+            <!-- Will be populated with JS -->
+          </select>
+        </div>
+        <div class="dev-controls-section">
+          <label class="control-checkbox">
+            <input type="checkbox" id="loopSlides" checked />
+            Loop slides
+          </label>
+          <label class="control-checkbox">
+            <input type="checkbox" id="showAnimations" checked />
+            Animations
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Dots -->
+    <div class="nav-dots" id="navDots"></div>
+
+    <main class="horizontal-scroll" id="slideContainer">
+      <!-- First section The Monday Pill -->
+      <section class="slide bg-image-slide" data-duration="15000">
+        <!-- Monday Message Overlay -->
+        <div class="monday-message-overlay" id="mondayMessage">
+          <div class="content-wrapper">
+            <h1 class="welcome-heading">Happy Monday!</h1>
+            <p class="welcome-subheading">
+              Let's start the week with positive energy
+            </p>
           </div>
         </div>
       </section>
-      <!-- End Randomeye Section  -->
+
+      <!-- Randomeye Section  -->
+      <section class="slide landscape-image-slide" data-duration="10000">
+        <div class="content-wrapper">
+          <div class="landscape-img-box">
+            <img src="assets/images/randoms/1.jpg" alt="Special Dish" />
+            <div class="landscape-img-caption">
+              HR: Making the workplace feel like home, one smile at a time. 😁
+            </div>
+          </div>
+        </div>
+      </section>
 
       <!-- Slide Show with text  -->
       <section class="slide" data-duration="20000">
-        <h2 class="section-heading">Old But Gold!! 🪙</h2>
-        <div class="slideshow-wrapper">
-          <div class="slideshow-slide active" data-duration="10000">
-            <img src="assets/images/old but gold/27.jpg" alt="Slide 1" />
-            <div class="image-title">
-              Straight from 2001: Our Operations Manager Hassan Nasserddine
-              showing how meetings should end! 😎
+        <div class="content-wrapper">
+          <h2 class="section-heading">Old But Gold!! 🪙</h2>
+          <div class="slideshow-wrapper">
+            <div class="slideshow-slide active" data-duration="10000">
+              <img src="assets/images/old but gold/27.jpg" alt="Slide 1" />
+              <div class="image-title">
+                Maliks Stand Exhibition 2006
+              </div>
             </div>
-          </div>
-          <div class="slideshow-slide" data-duration="10000">
-            <img src="assets/images/old but gold/28.jpg" alt="Slide 2" />
-            <div class="image-title">
-              Flashback to 2000: Wissam Al Daroub mastering the print on
+            <div class="slideshow-slide" data-duration="10000">
+              <img src="assets/images/old but gold/28.jpg" alt="Slide 2" />
+              <div class="image-title">
+                Doculand Stand Exhibition 2006
+              </div>
             </div>
           </div>
         </div>
       </section>
-      <!-- End Slide Show with text  -->
 
       <!-- Randomeye Section  -->
       <section class="slide landscape-image-slide" data-duration="10000">
-        <div class="landscape-img-box">
-          <img src="assets/images/randoms/5.jpg" alt="Special Dish" />
-          <div class="landscape-img-caption">
-            Beige mood, strong leadership — a picture of teamwork and class. 🤍
+        <div class="content-wrapper">
+          <div class="landscape-img-box">
+            <img src="assets/images/randoms/5.jpg" alt="Special Dish" />
+            <div class="landscape-img-caption">
+              Hazmieh dream team – showing up on Sunday with unstoppable energy!
+              💪
+            </div>
           </div>
         </div>
       </section>
-      <!-- End Randomeye Section  -->
 
       <!-- Operations Cards Section  -->
       <section class="slide operations-slide" data-duration="45000">
-        <h2 class="section-title">Customer Smiles & Stories</h2>
-        <div class="feedback-counter" id="feedback-counter">1 / 3</div>
-        <!-- 💡 Counter Here -->
-        <div class="feedback-carousel">
-          <div class="feedback-card active" data-duration="15000">
-            <img src="assets/images/Employees/Hadi Jamil.png" alt="Samia" />
-            <h3><span class="location">📍 Mtaileb</span></h3>
-            <div class="stars">⭐⭐⭐⭐⭐</div>
-            <p>
-              Thank you for a great service at Mtayleb branch | Hadi helped me
-              he is amazing.
-            </p>
-          </div>
-          <div class="feedback-card" data-duration="15000">
-            <img src="assets/images/Employees/Hassan Sleiman.png" alt="Chadi" />
-            <h3><span class="location">📍 Le Mall Dbayeh</span></h3>
-            <div class="stars">⭐⭐⭐⭐⭐</div>
-            <p>
-              I want to take the chance to give a feedback on the designer Hasan
-              Sleiman from Maliks Le Mall Branch. The guy is outstanding at what
-              he does, he gave us a 10 stars experience.
-            </p>
-          </div>
-          <div class="feedback-card" data-duration="15000">
-            <img src="assets/images/Employees/Sabah Malaeb.png" alt="Samer" />
-            <h3><span class="location">📍 Mazraa</span></h3>
-            <div class="stars">⭐⭐⭐⭐⭐</div>
-            <p>
-              I received excellent comment on Sabah Mazraa. She is a very
-              talented designer.
-            </p>
+        <div class="content-wrapper">
+          <h2 class="section-title">Customer Smiles & Stories</h2>
+          <div class="feedback-counter" id="feedback-counter">1 / 2</div>
+          <div class="feedback-carousel">
+            <div class="feedback-card active" data-duration="15000">
+              <img
+                src="assets/images/Employees/Roger Orfaly.png"
+                alt="Roger Orfaly"
+              />
+              <h3><span class="location">📍 Doc Gemayzeh</span></h3>
+              <div class="stars">⭐⭐⭐⭐⭐</div>
+              <p>
+                I want to thank Roger in doculand Gemayzeh, He is an excellent
+                guy and very professional and a solution provider
+              </p>
+            </div>
+
+            <div class="feedback-card" data-duration="15000">
+              <img
+                src="assets/images/Employees/Ismail Rajab.png"
+                alt="Ismail Rajab"
+              />
+              <h3><span class="location">📍 Stationery Dept</span></h3>
+              <div class="stars">⭐⭐⭐⭐⭐</div>
+              <p>
+                Kindly note that we received very good feedback from our
+                customer Ms. Rana Jabber, about Ismail Rajab, She was very happy
+                with his professional customer services at the Mtaileb branch.
+              </p>
+            </div>
+
+              <div class="feedback-card" data-duration="15000">
+              <img
+                src="assets/images/Employees/Rayan Edelbi.png"
+                alt="Rayan Edelbi"
+              />
+              <h3><span class="location">📍 Spinneys Jnah</span></h3>
+              <div class="stars">⭐⭐⭐⭐⭐</div>
+              <p>
+                I received excellent feedback regarding Rayan's customer service 😁
+              </p>
+            </div>
           </div>
         </div>
       </section>
-      <!-- End Operations Cards Section  -->
 
       <!-- Randomeye Section  -->
       <section class="slide landscape-image-slide" data-duration="10000">
-        <div class="landscape-img-box">
-          <img src="assets/images/randoms/6.jpg" alt="Special Dish" />
-          <div class="landscape-img-caption">
-            The pause before lunch storm — Mostafa² and the HO ladies 🍔🍟
+        <div class="content-wrapper">
+          <div class="landscape-img-box">
+            <img src="assets/images/randoms/6.jpg" alt="Special Dish" />
+            <div class="landscape-img-caption">
+              Standby? More like stand-strong! This trio is ready for anything
+            </div>
           </div>
         </div>
       </section>
-      <!-- End Randomeye Section  -->
 
       <!-- Stock Section  -->
       <section class="slide stock-result-slide" data-duration="10000">
-        <h2 class="section-title">Stock Talk! 💪💪</h2>
-        <div class="stock-card">
-          <img
-            src="assets/images/Employees/Amin Barakat.png"
-            alt="Samia Bouban"
-          />
-          <div class="stock-info">
-            <h3>Verdun</h3>
-            <p class="result-score">Result: <strong>99.8%</strong></p>
-            <p class="result-note">
-              Excellent management of stock, minimal shrinkage. 🔥
-            </p>
+        <div class="content-wrapper">
+          <h2 class="section-title">Stock Talk! 💪💪</h2>
+          <div class="stock-card">
+            <img
+              src="assets/images/Employees/Pamela Chamoun.png"
+              alt="Pamela Chamoun"
+            />
+            <div class="stock-info">
+              <h3>ABC Verdun</h3>
+              <p class="result-score">Result: <strong>99.87%</strong></p>
+              <p class="result-note">
+                Excellent management of stock, minimal shrinkage. 🔥
+              </p>
+            </div>
           </div>
         </div>
       </section>
-      <!-- End Stock Section  -->
 
-      <!-- Randomeye Section  -->
-      <section class="slide landscape-image-slide" data-duration="10000">
-        <div class="landscape-img-box">
-          <img src="assets/images/randoms/10.jpg" alt="Special Dish" />
-          <div class="landscape-img-caption">
-            When the dress code says power — HO men in black. 🖤
+      <!-- Slide show with text  -->
+      <section class="slide" data-duration="40000">
+        <div class="content-wrapper">
+          <h2 class="section-heading">Labor Day Vibes</h2>
+          <div class="slideshow-wrapper">
+            <div class="slideshow-slide active" data-duration="10000">
+              <img src="assets/images/One time use/1.jpg" alt="Slide 1" />
+              <div class="image-title">First Labor Day at Beirut Souks</div>
+            </div>
+            <div class="slideshow-slide" data-duration="10000">
+              <img src="assets/images/One time use/2.jpg" alt="Slide 2" />
+              <div class="image-title">
+                Hard work deserves good food and great company – cheers from
+                Jounieh! 🥂✨
+              </div>
+            </div>
+            <div class="slideshow-slide" data-duration="10000">
+              <img src="assets/images/One time use/3.jpg" alt="Slide 3" />
+              <div class="image-title">
+                Full house, full hearts! Dbayeh's Services section rocking Labor
+                Day with style and strength! 🎉📈
+              </div>
+            </div>
+            <div class="slideshow-slide" data-duration="10000">
+              <img src="assets/images/One time use/4.jpg" alt="Slide 4" />
+              <div class="image-title">
+                A packed house and a powerful team – Chweifet celebrating every
+                effort, every role 💼👏
+              </div>
+            </div>
           </div>
         </div>
       </section>
-      <!-- End Randomeye Section  -->
 
       <!-- Randomeye Section  -->
       <section class="slide landscape-image-slide" data-duration="10000">
-        <div class="landscape-img-box">
-          <img src="assets/images/lab88/7.jpg" alt="Special Dish" />
-          <!-- <div class="landscape-img-caption">
-          </div> -->
-        </div>
-      </section>
-      <!-- End Randomeye Section  -->
-
-      <!-- Randomeye Section  -->
-      <section class="slide landscape-image-slide" data-duration="10000">
-        <div class="landscape-img-box">
-          <img src="assets/images/randoms/19.jpg" alt="Special Dish" />
-          <div class="landscape-img-caption">
-            Roy leveled up (Promoted to Officer)! Beirut Souks team bringing the
-            good vibes
+        <div class="content-wrapper">
+          <div class="landscape-img-box">
+            <img src="assets/images/randoms/10.jpg" alt="Special Dish" />
+            <div class="landscape-img-caption">
+              To the sweetest soul with the brightest smile – happy birthday,
+              Loulwa! 🎂🌸
+            </div>
           </div>
         </div>
       </section>
-      <!-- End Randomeye Section  -->
+
+      <!-- Randomeye Section  -->
+      <section class="slide landscape-image-slide" data-duration="10000">
+        <div class="content-wrapper">
+          <div class="landscape-img-box" style="max-width: 1200px">
+            <img src="assets/images/lab88/7.jpg" alt="Special Dish" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide show with text  -->
+      <section class="slide" data-duration="40000">
+        <div class="content-wrapper">
+          <div class="slideshow-wrapper">
+            <div class="slideshow-slide active" data-duration="10000">
+              <img src="assets/images/randoms/19.jpg" alt="Slide 1" />
+              <div class="image-title">
+                Books, art, and pure talent – our interior designer turned
+                imagination into furniture! 🔥👩‍🎨
+              </div>
+            </div>
+            <div class="slideshow-slide" data-duration="10000">
+              <img src="assets/images/randoms/21.jpg" alt="Slide 2" />
+              <div class="image-title">
+                Books, art, and pure talent – our interior designer turned
+                imagination into furniture! 🔥👩‍🎨
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Randomeye Section  -->
+      <section class="slide landscape-image-slide" data-duration="10000">
+        <div class="content-wrapper">
+          <div class="landscape-img-box">
+            <img src="assets/images/randoms/22.jpg" alt="Special Dish" />
+            <div class="landscape-img-caption">
+              Outside the branch, ready for action! 🚀 Wael Ahmadieh & Mustafa
+              Assir
+            </div>
+          </div>
+        </div>
+      </section>
 
       <!-- Slide Show without Text -->
       <section
@@ -165,304 +306,191 @@
         data-type="slideshow"
         data-duration="20000"
       >
-        <h1 style="font-size: 38px; z-index: 1">
-          Supervisors Graduating from Maliks Academy Class 2024–2025! 🌟
-        </h1>
-        <div class="slideshow-wrapper">
-          <div class="slideshow-slide active" data-duration="10000">
-            <img src="assets/images/HR/1.jpg" alt="Slide 1" />
-          </div>
-          <div class="slideshow-slide" data-duration="10000">
-            <img src="assets/images/HR/2.jpg" alt="Slide 2" />
-          </div>
-          <div class="slideshow-slide" data-duration="10000">
-            <img src="assets/images/HR/3.jpg" alt="Slide 3" />
-          </div>
-          <div class="slideshow-slide" data-duration="10000">
-            <img src="assets/images/HR/4.jpg" alt="Slide 4" />
-          </div>
-        </div>
-      </section>
-      <!-- End Slide show without text  -->
-
-      <!-- Randomeye Section  -->
-      <section class="slide landscape-image-slide" data-duration="10000">
-        <div class="landscape-img-box">
-          <img src="assets/images/HR/Supervisors/1.jpeg" alt="Special Dish" />
-          <div class="landscape-img-caption">Ali Eido - Doculand Gemayzeh</div>
-        </div>
-      </section>
-      <!-- End Randomeye Section  -->
-
-      <!-- Randomeye Section  -->
-      <section class="slide landscape-image-slide" data-duration="10000">
-        <div class="landscape-img-box">
-          <img src="assets/images/HR/Supervisors/2.jpeg" alt="Special Dish" />
-          <div class="landscape-img-caption">
-            Ousama Al Masri - Doculand Mathaf
+        <div class="content-wrapper">
+          <h2 class="section-heading">Project Lebanon Exhibitions</h2>
+          <div class="slideshow-wrapper">
+            <div class="slideshow-slide active" data-duration="15000">
+              <img src="assets/images/marketing/1.jpg" alt="Slide 1" />
+            </div>
+            <div class="slideshow-slide" data-duration="15000">
+              <img src="assets/images/marketing/2.jpg" alt="Slide 2" />
+            </div>
+            <div class="slideshow-slide" data-duration="15000">
+              <img src="assets/images/marketing/5.jpg" alt="Slide 5" />
+            </div>
+                        <div class="slideshow-slide" data-duration="15000">
+              <img src="assets/images/marketing/6.jpg" alt="Slide 6" />
+            </div>
+                        <div class="slideshow-slide" data-duration="15000">
+              <img src="assets/images/marketing/7.jpg" alt="Slide 7" />
+            </div>
+                        <div class="slideshow-slide" data-duration="15000">
+              <img src="assets/images/marketing/8.jpg" alt="Slide 8" />
+        
           </div>
         </div>
       </section>
-      <!-- End Randomeye Section  -->
 
-      <!-- Randomeye Section  -->
-      <section class="slide landscape-image-slide" data-duration="10000">
-        <div class="landscape-img-box">
-          <img src="assets/images/HR/Supervisors/3.jpeg" alt="Special Dish" />
-          <div class="landscape-img-caption">Mona Nahed - HR Department</div>
-        </div>
-      </section>
-      <!-- End Randomeye Section  -->
-
-      <!-- Randomeye Section  -->
-      <section class="slide landscape-image-slide" data-duration="10000">
-        <div class="landscape-img-box">
-          <img src="assets/images/HR/Supervisors/4.jpeg" alt="Special Dish" />
-          <div class="landscape-img-caption">Maha Siblini - ABC Verdun</div>
-        </div>
-      </section>
-      <!-- End Randomeye Section  -->
-
-      <!-- Randomeye Section  -->
-      <section class="slide landscape-image-slide" data-duration="10000">
-        <div class="landscape-img-box">
-          <img src="assets/images/HR/Supervisors/5.jpeg" alt="Special Dish" />
-          <div class="landscape-img-caption">Lidia Hamdan - Spot C</div>
-        </div>
-      </section>
-      <!-- End Randomeye Section  -->
-
-      <!-- Randomeye Section  -->
-      <section class="slide landscape-image-slide" data-duration="10000">
-        <div class="landscape-img-box">
-          <img src="assets/images/HR/Supervisors/6.jpeg" alt="Special Dish" />
-          <div class="landscape-img-caption">Walaa Ibrahim - Jbeil</div>
-        </div>
-      </section>
-      <!-- End Randomeye Section  -->
-
-      <!-- Randomeye Section  -->
-      <section class="slide landscape-image-slide" data-duration="10000">
-        <div class="landscape-img-box">
-          <img src="assets/images/randoms/20.jpg" alt="Special Dish" />
-          <div class="landscape-img-caption">
-            When sunshine walks into the office — times four! 😎
-          </div>
-        </div>
-      </section>
-      <!-- End Randomeye Section  -->
-
-      <!-- Slide Show Images Section  -->
+      <!-- Slide Show without Text -->
       <section
         class="slide slide-section"
         data-type="slideshow"
         data-duration="20000"
       >
-        <div class="slideshow-wrapper">
-          <div class="slideshow-slide active" data-duration="10000">
-            <img src="assets/images/marketing/1.jpg" alt="Slide 1" />
-          </div>
-          <div class="slideshow-slide active" data-duration="10000">
-            <img src="assets/images/marketing/2.jpg" alt="Slide 1" />
-          </div>
-          <div class="slideshow-slide active" data-duration="10000">
-            <img src="assets/images/marketing/3.jpg" alt="Slide 3" />
-          </div>
-          <div class="slideshow-slide" data-duration="10000">
-            <img src="assets/images/marketing/4.jpg" alt="Slide 4" />
-          </div>
-        </div>
-      </section>
-      <!-- End Slide Show Images Section  -->
-
-      <!-- Randomeye Section  -->
-      <section class="slide landscape-image-slide">
-        <div class="landscape-img-box">
-          <img src="assets/images/randoms/2.jpg" alt="Special Dish" />
-          <div class="landscape-img-caption">
-            Silva & Jessy Marketing Manager showing the catalog like it’s a
-            magic trick 🪄
+        <div class="content-wrapper">
+          <h2 class="section-heading">Job Fair At Kafaat University</h2>
+          <div class="slideshow-wrapper">
+            <div class="slideshow-slide active" data-duration="10000">
+              <img src="assets/images/One time use/5.jpg" alt="Slide 1" />
+            </div>
+            <div class="slideshow-slide" data-duration="10000">
+              <img src="assets/images/One time use/6.jpg" alt="Slide 2" />
+            </div>
+            <div class="slideshow-slide" data-duration="10000">
+              <img src="assets/images/One time use/7.jpg" alt="Slide 3" />
+            </div>
           </div>
         </div>
       </section>
-      <!-- End Randomeye Section  -->
-
-      <!-- Dad Jocks Section  -->
-      <section class="slide dad-joke-section" data-duration="20000">
-        <div class="dad-joke-box">
-          <h2 class="dad-joke-title">🧔 Dad Joke of the Moment</h2>
-          <p class="dad-joke-text">
-            My wife asked me to go get 6 cans of sprite from the grocery store.
-            <br /><br />
-            When I got home I realized that I had picked 7 up
-          </p>
-        </div>
-      </section>
-      <!-- End Dad Jocks Section  -->
 
       <!-- Randomeye Section  -->
       <section class="slide landscape-image-slide" data-duration="10000">
-        <div class="landscape-img-box">
-          <img src="assets/images/randoms/3.jpg" alt="Special Dish" />
-          <div class="landscape-img-caption">
-            Doculand Sales Manager Naji × Office Supplies Manager Hiba =
-            elegance in white ✨🤍
+        <div class="content-wrapper">
+          <div class="landscape-img-box">
+            <img src="assets/images/randoms/2.jpg" alt="Special Dish" />
+            <div class="landscape-img-caption">
+              After a long day.. shawarma is the way😋
+            </div>
           </div>
         </div>
       </section>
-      <!-- End Randomeye Section  -->
 
-      <!-- Videos portrait -->
-      <section class="slide slide-portrait-video" data-duration="48000">
-        <div class="video-section">
-          <h2 class="section-title">Great Books Display in Sin El Fil</h2>
-          <video
-            class="video portrait-video"
-            muted
-            playsinline
-            loop
-            preload="auto"
-            width="360"
-            height="640"
-          >
-            <source src="assets/videos/1.mp4" type="video/mp4" />
-          </video>
+      <!-- Dad Jokes Section  -->
+      <section class="slide dad-joke-section" data-duration="20000">
+        <div class="content-wrapper">
+          <div class="dad-joke-box">
+            <h2 class="dad-joke-title">🧔 Dad Joke of the Moment</h2>
+            <p class="dad-joke-text">
+              My mate David had his ID stolen
+              <br /><br />
+              I now call him Dav
+            </p>
+          </div>
         </div>
       </section>
-      <!-- End Videos Portrait  -->
+
+      <!-- Randomeye Section  -->
+      <section class="slide landscape-image-slide" data-duration="10000">
+        <div class="content-wrapper">
+          <div class="landscape-img-box">
+            <img src="assets/images/randoms/3.jpg" alt="Special Dish" />
+            <div class="landscape-img-caption">
+              Election vibes with the most fun team | City Center 😅❤️‍🔥
+            </div>
+          </div>
+        </div>
+      </section>
 
       <!-- Slide Show with text  -->
       <section class="slide" data-duration="40000">
-        <h2 class="section-heading">Services Weekly Ideas</h2>
-        <div class="slideshow-wrapper">
-          <div class="slideshow-slide active" data-duration="10000">
-            <img src="assets/images/ideas/1.jpg" alt="Slide 1" />
-            <div class="image-title">
-              30 bags with vinyl | 30 mugs black inside | 25 agendas with laser
-              engraving |Done by Saed Hashem, Mohammad, and Sara Mourawed at the
-              City Center branch 💪🏼💪🏼
+        <div class="content-wrapper">
+          <h2 class="section-heading">Services Weekly Ideas</h2>
+          <div class="slideshow-wrapper">
+            <div class="slideshow-slide active" data-duration="10000">
+              <img src="assets/images/ideas/1.jpg" alt="Slide 1" />
+              <div class="image-title">
+                Printings on hats by Habib Salhani from Mazraa branch 💪🏼
+              </div>
             </div>
-          </div>
-          <div class="slideshow-slide" data-duration="10000">
-            <img src="assets/images/ideas/2.jpg" alt="Slide 2" />
-            <div class="image-title">
-              Mostafa Rihan printed the Wall of Fame at Factory, while Mohammad
-              Al Mohammad and Ahmad Dawaire installed it at Beirut Souks. Well
-              done guys 👍👍
+            <div class="slideshow-slide" data-duration="10000">
+              <img src="assets/images/ideas/2.jpg" alt="Slide 2" />
+              <div class="image-title">
+                Harley Davidson logo was done with two layers of plexi by Abed
+                El Karim Masri 💪🏼
+              </div>
             </div>
-          </div>
-          <div class="slideshow-slide" data-duration="10000">
-            <img src="assets/images/ideas/3.jpg" alt="Slide 3" />
-            <div class="image-title">
-              250 boxes were done by Aya Al Kaysi at the ABC Verdun branch 👍🏼
+            <div class="slideshow-slide" data-duration="10000">
+              <img src="assets/images/ideas/3.jpg" alt="Slide 3" />
+              <div class="image-title">
+                Done by Rami Al Hakim at Sinelfil branch 💪🏼💪🏼
+              </div>
             </div>
-          </div>
-
-          <div class="slideshow-slide" data-duration="10000">
-            <img src="assets/images/ideas/4.jpg" alt="Slide 4" />
-            <div class="image-title">
-              Rima Ghandoura at Doculand Mathaf used AI to turn a photo into
-              cartoon stickers, then mounted it on plexi with laser cutting to
-              create a unique key chain. 💪🏼
+            <div class="slideshow-slide" data-duration="10000">
+              <img src="assets/images/ideas/4.jpg" alt="Slide 4" />
+              <div class="image-title">
+                Rima Ghandoura at Doculand Mathaf used AI to turn a photo into
+                cartoon stickers, then mounted it on plexi with laser cutting to
+                create a unique key chain. 💪🏼
+              </div>
+            </div>
+            <div class="slideshow-slide" data-duration="10000">
+              <img src="assets/images/ideas/5.jpg" alt="Slide 5" />
+              <div class="image-title">
+                By Habib Salhani from Mazraa branch 💪🏼
+              </div>
+            </div>
+            <div class="slideshow-slide" data-duration="10000">
+              <img src="assets/images/ideas/6.jpg" alt="Slide 6" />
+              <div class="image-title">
+                Plexi trophies also done by Alaa Abdul Khalek at Books and Pens
+                💪🏼
+              </div>
+            </div>
+            <div class="slideshow-slide" data-duration="10000">
+              <img src="assets/images/ideas/7.jpg" alt="Slide 7" />
+              <div class="image-title">
+                Creative Keychains with AI-edited photos was done by Ahmad Atyeh
+                at Doculand Dekwaneh 👌🏼
+              </div>
             </div>
           </div>
         </div>
       </section>
-      <!-- End Slide Show with text  -->
+
+      <!-- Slide Show without Text -->
+      <section
+        class="slide slide-section"
+        data-type="slideshow"
+        data-duration="20000"
+      >
+        <div class="content-wrapper">
+          <h2 class="section-heading">New Branch: Centro Mall</h2>
+          <div class="slideshow-wrapper">
+            <div class="slideshow-slide active" data-duration="10000">
+              <img src="assets/images/One time use/8.jpg" alt="Slide 1" />
+            </div>
+            <div class="slideshow-slide" data-duration="10000">
+              <img src="assets/images/One time use/9.jpg" alt="Slide 2" />
+            </div>
+            <div class="slideshow-slide" data-duration="10000">
+              <img src="assets/images/One time use/10.jpg" alt="Slide 3" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Videos portrait -->
+      <section class="slide slide-portrait-video" data-duration="48000">
+        <div class="content-wrapper">
+          <div class="video-section">
+            <h2 class="section-title">Visit our new Centro Mall Branch ✋🏼</h2>
+            <video
+              class="video portrait-video"
+              muted
+              playsinline
+              loop
+              preload="auto"
+              width="360"
+              height="640"
+            >
+              <source src="assets/videos/1.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+      </section>
+
     </main>
 
     <script src="script.js"></script>
   </body>
 </html>
-
-<!-- Operations Cards Section  -->
-<!-- <section class="slide operations-slide">
-        <h2 class="section-title">Operations Team</h2>
-        <div class="operations-grid">
-          <div class="op-card">
-            <img src="https://via.placeholder.com/100" alt="Employee Photo" />
-            <h3>John Doe</h3>
-            <p>Senior Chef</p>
-          </div>
-          <div class="op-card">
-            <img src="https://via.placeholder.com/100" alt="Employee Photo" />
-            <h3>Jane Smith</h3>
-            <p>Kitchen Supervisor</p>
-          </div>
-          <div class="op-card">
-            <img src="https://via.placeholder.com/100" alt="Employee Photo" />
-            <h3>Ahmed Ali</h3>
-            <p>Line Cook</p>
-          </div>
-        </div>
-      </section> -->
-<!-- End Operations Cards Section  -->
-
-<!-- Tips and Tricks Section -->
-<!-- <section class="slide tip-slide">
-        <div class="tip-box">
-          <h2 class="tip-title">💡 Tip of the Day</h2>
-          <p class="tip-text">
-            Always clean as you go. A tidy station = a tidy mind. 👨‍🍳🧽
-          </p>
-        </div>
-      </section> -->
-<!-- End Tips and Tricks Section -->
-
-<!-- Randomeye Section  -->
-<!-- <section class="slide landscape-image-slide">
-        <div class="landscape-img-box">
-          <img src="images/special-dish.jpg" alt="Special Dish" />
-          <div class="landscape-img-caption">
-            🥘 Today’s Highlight: Creamy Chicken Alfredo
-          </div>
-        </div>
-      </section> -->
-<!-- End Randomeye Section  -->
-
-<!-- Section to handle Table -->
-<!-- <section class="slide table-slide">
-        <div class="slide-title">📊 Performance Table</div>
-
-        <div class="table-wrapper">
-          <table class="custom-table">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Score</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Ahmed</td>
-                <td>92%</td>
-                <td>Excellent</td>
-              </tr>
-              <tr>
-                <td>Sara</td>
-                <td>85%</td>
-                <td>Very Good</td>
-              </tr>
-              <tr>
-                <td>Ali</td>
-                <td>78%</td>
-                <td>Good</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section> -->
-<!-- End the Table Section  -->
-
-<!-- Videos Landscape  -->
-<!-- <section class="slide slide-landscape-video" data-duration="218000">
-            <div class="video-section">
-                <h2 class="section-title">Congratulations Guys !</h2>
-                <video class="video landscape-video" muted playsinline loop preload="auto" width="100%"
-                    height="auto">
-                    <source src="assets/videos/Supervisors.mp4" type="video/mp4" />
-                </video>
-            </div>
-        </section> -->
-<!-- End Videos Landscape  -->
