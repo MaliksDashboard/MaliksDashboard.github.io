@@ -8,10 +8,17 @@
 html,
 body {
   height: 100vh;
+  width: 100vw;
   overflow: hidden;
+  /* This prevents any scrolling on the body */
   font-family: "Poppins", sans-serif;
   color: #333;
+  position: fixed;
+  /* Lock the body in place */
+  top: 0;
+  left: 0;
 }
+
 
 /* === SPRING CANVAS === */
 #spring-canvas {
@@ -219,7 +226,8 @@ main.horizontal-scroll {
   display: flex;
   width: 100vw;
   height: 100vh;
-  overflow-x: hidden;
+  overflow: hidden;
+  /* Changed from overflow-x: hidden to overflow: hidden */
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   position: relative;
@@ -232,6 +240,11 @@ main.horizontal-scroll {
   scroll-snap-align: start;
   position: relative;
   overflow: hidden;
+  /* Ensure slides don't create vertical overflow */
+  min-height: 100vh;
+  /* Ensure minimum height */
+  max-height: 100vh;
+  /* Prevent slides from being taller than viewport */
 }
 
 .content-wrapper {
@@ -245,13 +258,64 @@ main.horizontal-scroll {
   align-items: center;
   padding: 40px;
   animation: fadeIn 1s ease-out forwards;
+  overflow: hidden;
+  /* Prevent content from overflowing */
+  box-sizing: border-box;
+  /* Include padding in height calculation */
 }
+
+@media (max-height: 600px) {
+  .content-wrapper {
+    padding: 20px;
+    justify-content: flex-start;
+    padding-top: 60px;
+    /* Account for clock and progress bar */
+  }
+
+  .section-heading,
+  .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+
+  .welcome-heading {
+    font-size: 2.5rem;
+  }
+
+  .welcome-subheading {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-height: 500px) {
+  .content-wrapper {
+    padding: 15px;
+    padding-top: 50px;
+  }
+
+  .section-heading,
+  .section-title {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+
+  .landscape-img-box,
+  .slideshow-wrapper {
+    max-height: 60vh;
+  }
+
+  .feedback-carousel {
+    min-height: 300px;
+  }
+}
+
 
 @keyframes fadeIn {
   from {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -271,21 +335,17 @@ main.horizontal-scroll {
 }
 
 .slide:nth-child(3n + 2)::before {
-  background: linear-gradient(
-    120deg,
-    rgba(242, 255, 243, 0.9),
-    rgba(255, 246, 235, 0.9),
-    rgba(236, 248, 255, 0.9)
-  );
+  background: linear-gradient(120deg,
+      rgba(242, 255, 243, 0.9),
+      rgba(255, 246, 235, 0.9),
+      rgba(236, 248, 255, 0.9));
 }
 
 .slide:nth-child(3n + 3)::before {
-  background: linear-gradient(
-    120deg,
-    rgba(255, 246, 235, 0.9),
-    rgba(236, 248, 255, 0.9),
-    rgba(242, 255, 243, 0.9)
-  );
+  background: linear-gradient(120deg,
+      rgba(255, 246, 235, 0.9),
+      rgba(236, 248, 255, 0.9),
+      rgba(242, 255, 243, 0.9));
 }
 
 /* Spring-themed accents */
@@ -339,6 +399,7 @@ main.horizontal-scroll {
     opacity: 0;
     transform: translateY(-20px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -388,6 +449,7 @@ main.horizontal-scroll {
     opacity: 0;
     transform: translateY(30px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -397,7 +459,8 @@ main.horizontal-scroll {
 /* === LANDSCAPE IMAGE STYLES === */
 .landscape-img-box {
   position: relative;
-  width: 100%;
+  width: 90%;
+  /* Use percentage instead of fixed max-width */
   max-width: 900px;
   margin: 0 auto;
   border-radius: 16px;
@@ -406,6 +469,10 @@ main.horizontal-scroll {
   transform: scale(0.95);
   opacity: 0;
   animation: imgBoxIn 0.8s ease-out forwards;
+
+  /* Dynamic height based on viewport */
+  max-height: 60vh;
+  min-height: 300px;
 }
 
 @keyframes imgBoxIn {
@@ -413,6 +480,7 @@ main.horizontal-scroll {
     opacity: 0;
     transform: scale(0.95);
   }
+
   100% {
     opacity: 1;
     transform: scale(1);
@@ -421,26 +489,31 @@ main.horizontal-scroll {
 
 .landscape-img-box img {
   width: 100%;
-  height: auto;
+  height: 100%;
   border-radius: 16px;
-  object-fit: cover;
+  object-fit: contain;
+  /* Changed from 'cover' to 'contain' to prevent cropping */
+  object-position: center;
   transition: transform 5s ease;
+  background: rgba(255, 255, 255, 0.1);
+  /* Subtle background for letterboxing */
 }
 
-.landscape-img-box:hover img {
-  transform: scale(1.05);
+/* Alternative: If you want to maintain cover but with better scaling */
+.landscape-img-box.cover-mode img {
+  object-fit: cover;
+  min-height: 100%;
 }
+
 
 .landscape-img-caption {
   position: absolute;
   bottom: 0;
   left: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.8),
-    rgba(0, 0, 0, 0.5),
-    transparent
-  );
+  background: linear-gradient(to top,
+      rgba(0, 0, 0, 0.8),
+      rgba(0, 0, 0, 0.5),
+      transparent);
   color: #fff;
   padding: 20px;
   font-size: 1.4rem;
@@ -456,6 +529,7 @@ main.horizontal-scroll {
     opacity: 0;
     transform: translateY(20px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -464,7 +538,7 @@ main.horizontal-scroll {
 
 /* === SLIDESHOW STYLES === */
 .slideshow-wrapper {
-  width: 100%;
+  width: 90%;
   max-width: 900px;
   aspect-ratio: 16 / 9;
   position: relative;
@@ -474,6 +548,10 @@ main.horizontal-scroll {
   transform: scale(0.95);
   opacity: 0;
   animation: imgBoxIn 0.8s ease-out forwards;
+
+  /* Responsive aspect ratio */
+  max-height: 60vh;
+  min-height: 300px;
 }
 
 .slideshow-slide {
@@ -499,8 +577,12 @@ main.horizontal-scroll {
 .slideshow-slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  /* Prevent cropping in slideshows */
+  object-position: center;
   border-radius: 16px;
+  background: rgba(0, 0, 0, 0.05);
+  /* Subtle background for letterboxing */
 }
 
 .slideshow-slide .image-title {
@@ -508,12 +590,10 @@ main.horizontal-scroll {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.8),
-    rgba(0, 0, 0, 0.5),
-    transparent
-  );
+  background: linear-gradient(to top,
+      rgba(0, 0, 0, 0.8),
+      rgba(0, 0, 0, 0.5),
+      transparent);
   color: white;
   padding: 20px;
   font-size: 1.3rem;
@@ -700,6 +780,7 @@ main.horizontal-scroll {
   0% {
     transform: translateY(0) rotate(0deg);
   }
+
   100% {
     transform: translateY(-5px) rotate(5deg);
   }
@@ -775,8 +856,31 @@ main.horizontal-scroll {
   animation: fadeIn 0.8s ease-out forwards;
 }
 
+.landscape-img-box,
+.slideshow-wrapper {
+  max-height: 70vh;
+  /* Ensure images don't exceed 70% of viewport height */
+  width: 100%;
+}
+
+.landscape-img-box img,
+.slideshow-slide img {
+  max-height: 70vh;
+  width: 100%;
+  object-fit: cover;
+}
+
+.portrait-video {
+  max-height: 70vh;
+  /* Limit video height */
+  max-width: 90vw;
+}
+
+
+
 /* === RESPONSIVE STYLES === */
 @media (max-width: 1200px) {
+
   .section-heading,
   .section-title {
     font-size: 2.2rem;
@@ -848,6 +952,7 @@ main.horizontal-scroll {
   opacity: 0;
   z-index: 1;
 }
+
 .spring-leaf {
   width: 30px;
   height: 30px;
@@ -867,12 +972,15 @@ main.horizontal-scroll {
     opacity: 1;
     transform: translateY(-100px) translateX(0);
   }
+
   10% {
     opacity: 1;
   }
+
   90% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
     transform: translateY(100vh) translateX(100px);
@@ -883,9 +991,11 @@ main.horizontal-scroll {
   0% {
     transform: rotate(0deg);
   }
+
   50% {
     transform: rotate(180deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -893,20 +1003,24 @@ main.horizontal-scroll {
 
 /* Floating animations for spring elements */
 @keyframes float {
+
   0%,
   100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-20px);
   }
 }
 
 @keyframes pulse {
+
   0%,
   100% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.05);
   }
@@ -919,11 +1033,9 @@ main.horizontal-scroll {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(
-    45deg,
-    rgba(125, 222, 146, 0.7),
-    rgba(87, 199, 228, 0.7)
-  );
+  background: linear-gradient(45deg,
+      rgba(125, 222, 146, 0.7),
+      rgba(87, 199, 228, 0.7));
   clip-path: circle(0% at center);
   pointer-events: none;
   z-index: 900;
@@ -958,16 +1070,12 @@ main.horizontal-scroll {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: radial-gradient(
-      ellipse at bottom right,
+  background: radial-gradient(ellipse at bottom right,
       rgba(255, 235, 205, 0.1),
-      transparent 70%
-    ),
-    radial-gradient(
-      ellipse at top left,
+      transparent 70%),
+    radial-gradient(ellipse at top left,
       rgba(173, 216, 230, 0.1),
-      transparent 70%
-    );
+      transparent 70%);
   pointer-events: none;
   z-index: 1;
   opacity: 0.7;
