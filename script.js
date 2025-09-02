@@ -43,8 +43,10 @@ document.addEventListener("DOMContentLoaded", () => {
   let elapsedTime = 0;
   let animationFrameId = null;
   
-  // Mobile detection - use simple and reliable method
-  const isMobile = window.innerWidth <= 768 || 'ontouchstart' in window;
+  // Mobile detection - improved for TV compatibility
+  const isMobile = (window.innerWidth <= 768) && 
+                   ('ontouchstart' in window) && 
+                   (window.innerWidth < 1200); // TVs are typically 1920x1080 or larger
 
   // Initialize the Clock
   updateClock();
